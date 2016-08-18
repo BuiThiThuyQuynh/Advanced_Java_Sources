@@ -1,0 +1,33 @@
+package main;
+
+public class TestSuperlativeEquation {
+	
+	
+	
+	/*
+	 * Function: check root: many root, not root or -b/a
+	 * Input: root
+	 * Output: string about root
+	 */
+	public static String checkRoot(double a, double b) {
+		if (a == 0)
+			if (b == 0)
+				return "Numerous root";
+	}
+
+	public static void main(String[] args) {
+		try {
+			SuperlativeEquation se = new SuperlativeEquation();
+			se.setA(0);
+			se.setB(0);
+			double root = calRoot(se.getA(), se.getB());
+			System.out.println("Root of an equations: " + se.getA() + "" + root);
+			
+			
+			
+		}
+		catch (NumberFormatException | ArithmeticException ex) {
+			System.out.println("Exception: " + ex);
+		}
+	}
+}

@@ -1,0 +1,33 @@
+package main;
+
+public class TestSuperlativeEquation {
+	
+	/*
+	 * Function: calculate equation of superlative equation (ax + b = 0)
+	 * Input: a, b
+	 * Output: x
+	 */
+	public static double calRoot (double a, double b) {
+		if (a == 0)
+			if (b == 0)
+				return 0;
+			else
+				return b;
+		else
+			return -b / a;
+	}
+
+	public static void main(String[] args) {
+		try {
+			SuperlativeEquation se = new SuperlativeEquation();
+			se.setA(0);
+			se.setB(0);
+			
+			double root = calRoot(se.getA(), se.getB());
+			System.out.println("E");
+		}
+		catch (NumberFormatException | ArithmeticException ex) {
+			System.out.println("Exception: " + ex);
+		}
+	}
+}

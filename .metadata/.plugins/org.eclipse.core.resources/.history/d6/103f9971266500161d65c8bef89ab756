@@ -1,0 +1,18 @@
+package main;
+
+/*
+ * Bui Thi Thuy Quynh - 18/08/2016
+ */
+
+public class SuperlativeEquation {
+	private double a;
+	private double b;
+	
+	public SuperlativeEquation() {
+		
+	}
+	
+	public SuperlativeEquation() {
+		
+	}
+}

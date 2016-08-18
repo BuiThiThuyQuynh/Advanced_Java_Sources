@@ -1,0 +1,18 @@
+package main;
+
+public class TestSuperlativeEquation {
+	
+	/*
+	 * Function: calculate equation of superlative equation (ax + b = 0)
+	 * Input: a, b
+	 * Output: x
+	 */
+	public static double calEquation (double a, double b) {
+		
+	}
+
+	public static void main(String[] args) {
+		
+
+	}
+}

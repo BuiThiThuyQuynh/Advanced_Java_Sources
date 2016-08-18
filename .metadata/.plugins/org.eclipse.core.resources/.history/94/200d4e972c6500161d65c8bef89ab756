@@ -1,0 +1,14 @@
+package test;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class TestLinenearEquationJUnitTest {
+
+	@Test
+	public void testCheckRoot() {
+		String ex = "";
+	}
+
+}
