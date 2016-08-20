@@ -1,3 +1,11 @@
+/**
+ * Author: Bui Thi Thuy Quynh
+ * Date: 19/08/2016
+ * Version: 1.0
+ * 
+ * Class handles for Exercise16Employee class
+ */
+
 package handling;
 
 import java.io.BufferedReader;
@@ -45,18 +53,16 @@ public class Exercise16Handling {
 			
 			Exercise16Employee employee = new Exercise16Employee(name, coefficientsSalary, 
 					numberOfFamily, allowance);
+			
 			System.out.println("-------------------------------------------");
 			DecimalFormat formatter = new DecimalFormat("#,###");
 			System.out.println("Salary: " + formatter.format(employee.calSalary()));
 			System.out.println("Taxable salary: " + formatter.format(employee.calTaxableSalary()));
 			System.out.println("Personal taxes: " + formatter.format(employee.calPersonalTaxes()));
 			System.out.println("Real salary: " + formatter.format(employee.calRealSalary()));
-			
 		}
 		catch (IOException | NumberFormatException ex) {
 			System.out.println("Exception: " + ex);
 		}
-
 	}
-
 }

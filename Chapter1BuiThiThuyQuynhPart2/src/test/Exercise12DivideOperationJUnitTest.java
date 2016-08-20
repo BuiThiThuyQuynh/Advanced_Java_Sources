@@ -3,9 +3,9 @@
  * Date: 19/08/2016
  * Version: 1.0
  * 
- * JUnit Test for DivideOperation() method of Exercise12Operation
+ * JUnit Test for divideOperation() method of Exercise12Operation
  * Input: firstNumber, secondNumber
- * Output: Divideplication of two numbers
+ * Output: Divisor of two numbers
  */
 
 package test;

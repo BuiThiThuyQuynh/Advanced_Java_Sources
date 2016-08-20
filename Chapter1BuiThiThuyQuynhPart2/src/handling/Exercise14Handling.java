@@ -39,9 +39,9 @@ public class Exercise14Handling {
 			Exercise13Point pointO = new Exercise13Point(ox, oy);
 			Exercise13Point pointR = new Exercise13Point(rx, ry);
 			
-			Exercise13Distance points = new Exercise13Distance(pointO, pointR);
+			Exercise13Distance distance = new Exercise13Distance(pointO, pointR);
 			
-			double radius = points.calDistance();
+			double radius = distance.calDistance();
 			
 			if (radius == 0)
 				System.out.println("This is a lpoint, not a circle");

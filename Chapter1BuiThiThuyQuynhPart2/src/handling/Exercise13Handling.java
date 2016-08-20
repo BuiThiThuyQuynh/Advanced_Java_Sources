@@ -37,13 +37,13 @@ public class Exercise13Handling {
 			Exercise13Point pointA = new Exercise13Point(ax, ay);
 			Exercise13Point pointB = new Exercise13Point(bx, by);
 			
-			Exercise13Distance points = new Exercise13Distance(pointA, pointB);
+			Exercise13Distance distance = new Exercise13Distance(pointA, pointB);
 			
-			if (points.calDistance() == 0)
+			if (distance.calDistance() == 0)
 				System.out.println("They are a point");
 			else
 				System.out.println("The distance between 2 points is " 
-						+ String.format("%.3f", points.calDistance()));
+						+ String.format("%.3f", distance.calDistance()));
 		}
 		catch (IOException | NumberFormatException ex) {
 			System.out.println("Exception: " + ex);

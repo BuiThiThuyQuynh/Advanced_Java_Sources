@@ -8,7 +8,11 @@
 
 package classes;
 
+/**
+ * Enum for personal income tax grades
+ */
 enum PersonalTaxesRates {
+	
 	LEVEL1(0, 5000000, 0.05, 250000),
 	LEVEL2(5000001, 10000000, 0.1, 500000),
 	LEVEL3(10000001, 18000000, 0.15, 1200000),
@@ -34,8 +38,6 @@ enum PersonalTaxesRates {
 		this.taxableSalaryStart = taxableSalaryStart;
 		this.tax = tax;
 	}
-
-
 
 	public double getTaxableSalaryStart() {
 		return taxableSalaryStart;
@@ -196,7 +198,6 @@ public class Exercise16Employee {
 			
 	}
 	
-
 	/**
 	 * Function: calculating real salary of employee
 	 * Input: No

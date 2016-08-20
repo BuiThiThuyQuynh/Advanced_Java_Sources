@@ -5,7 +5,7 @@
  * 
  * JUnit Test for multiOperation() method of Exercise12Operation
  * Input: firstNumber, secondNumber
- * Output: multiplication of two numbers
+ * Output: the result of multiplication between two numbers
  */
 
 package test;

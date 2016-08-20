@@ -40,11 +40,11 @@ public class Exercise15Handling {
 			Exercise13Point pointB = new Exercise13Point(ax, cy);
 			Exercise13Point pointD = new Exercise13Point(cx, ay);
 			
-			Exercise13Distance pointsAB = new Exercise13Distance(pointA, pointB);
-			Exercise13Distance pointsAD = new Exercise13Distance(pointA, pointD);
+			Exercise13Distance distanceAB = new Exercise13Distance(pointA, pointB);
+			Exercise13Distance distanceAD = new Exercise13Distance(pointA, pointD);
 			
-			double width = pointsAB.calDistance();
-			double lenght = pointsAD.calDistance();
+			double width = distanceAB.calDistance();
+			double lenght = distanceAD.calDistance();
 			
 			if (width == 0 && lenght == 0)
 				System.out.println("This is a point, not a rectangle");
