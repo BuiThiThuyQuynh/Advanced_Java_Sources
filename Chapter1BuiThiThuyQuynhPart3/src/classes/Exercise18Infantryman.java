@@ -3,7 +3,7 @@
  * Date: 22/08/2016
  * Version: 1.0
  * 
- *  Class manages the information of an infantryman
+ *  Class manages the information of an infantryman extends from Exercise18Soldier class
  */
 
 package classes;

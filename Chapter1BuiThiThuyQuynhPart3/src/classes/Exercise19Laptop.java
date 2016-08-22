@@ -3,7 +3,7 @@
  * Date: 22/08/2016
  * Version: 1.0
  * 
- *  Class manages the information of a type of a type of laptop
+ *  Class manages the information of a type of laptop extends from Exercise19Computer class
  */
 
 package classes;

@@ -3,7 +3,7 @@
  * Date: 22/08/2016
  * Version: 1.0
  * 
- *  Class manages the information of a type of a type of desktop
+ *  Class manages the computers included laptop and desktop
  */
 
 package classes;

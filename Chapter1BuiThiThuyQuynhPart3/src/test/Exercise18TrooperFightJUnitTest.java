@@ -1,6 +1,6 @@
 /**
  * Author: Bui Thi Thuy Quynh
- * Date: 19/08/2016
+ * Date: 22/08/2016
  * Version: 1.0
  * 
  * JUnit Test for fight() method of Exercise18Trooper

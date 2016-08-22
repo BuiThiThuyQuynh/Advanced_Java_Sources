@@ -129,7 +129,7 @@ public class Exercise19Handling {
 				computers.setLaptops(laptops);
 				computers.setDesktops(desktops);
 				
-				System.out.println(computers.toString());
+				System.out.print(computers.toString());
 				System.out.println("======================");
 				
 				int flagAddNewComputer = 0;
@@ -151,7 +151,7 @@ public class Exercise19Handling {
 						break;
 					}
 				}
-				System.out.println("chos: " + choose);
+				
 				if (flagAddNewComputer == 1) {
 					continue;
 				}
