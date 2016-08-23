@@ -3,99 +3,99 @@
  * Date: 22/08/2016
  * Version: 1.0
  * 
- *  Class handles for Exercise110Student class, Exercise110Teacher class and Exercise110ManagementHuman class
+ *  Class handles for Exercise111TransactionGold class, Exercise110TransactionCurrency class
  */
 
 package handling;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-import classes.Exercise110Human;
 import classes.Exercise110Student;
 import classes.Exercise110Teacher;
+import classes.Exercise111ManagementTransaction;
+import classes.Exercise111TransactionCurrency;
+import classes.Exercise111TransactionGold;
 
-public class Exercise110Handling {
-	
-	/**
-	 * Function: check format of phone number
-	 * Input: phone
-	 * Output: phone number is correct format or not
-	 */
-	public static boolean checkPhone(String phone) {
-		Pattern pattern = Pattern.compile("^[0][89][0-9]{8}|[0][1][0-9]{9}$");
-		Matcher matcher = pattern.matcher(phone);
-		return matcher.matches();
-	}
-	
-	public static void printArray(Exercise110Human[] human) {
-		System.out.println("===============================");
-		for (int i = 0; i < human.length; i++) {
-			System.out.println(human[i].toString());
-			System.out.println("------------------------");
-		}
-	}
+public class Exercise111Handling {
 
 	public static void main(String[] args) {
-
-		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 		
-		Exercise110Human[] human = new Exercise110Human[0];
+		/*BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 		
-		Exercise110Student student;
-		Exercise110Teacher teacher;
+		Exercise111TransactionGold[] listTransGold = new Exercise111TransactionGold[0];
+		Exercise111TransactionCurrency[] listTransCurrency =  new Exercise111TransactionCurrency[0];
+		Exercise111ManagementTransaction managementTransaction = new Exercise111ManagementTransaction();
+		
+		Exercise111TransactionGold transactionGold;
+		Exercise111TransactionCurrency transactionCurrency;
 		
 		boolean flag = true;
 		try {
 			while (flag) {
-				System.out.println("ENTER GENERAL INFORMATION OF A PERSON");
-				System.out.println("Enter name:");
-				String name = input.readLine();
+				System.out.println("ENTER GENERAL INFORMATION OF A TRANSACTION");
+				System.out.println("Enter id:");
+				String id = input.readLine();
 				
-				System.out.println("Enter day of birth (dd/MM/yyyy):");
+				System.out.println("Enter date of transaction (dd/MM/yyyy):");
 				String date = input.readLine();
 				
 				SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 				dateFormat.setLenient(false);
 				
-				Date dateOfBirth = dateFormat.parse(date);
+				Date dateOfTransaction = dateFormat.parse(date);
 				
+//				System.out.println("Enter price:");
+//				double price = Double.parseDouble(input.readLine());
+//				
+//				while (price < 0) {
+//					System.out.println("Price must be greater than or equal to 0");
+//					System.out.println("Enter price:");
+//					price = Double.parseDouble(input.readLine());
+//				}
 				
-				System.out.println("Enter address:");
-				String address = input.readLine();
+			/*	System.out.println("Enter quantity:");
+				int quantity = Integer.parseInt(input.readLine());
 				
-				System.out.println("Enter phone number:");
-				String phone = input.readLine();
-				
-				while (!checkPhone(phone)) {
-					System.out.println("Phone is wrong format. Please enter again");
-					System.out.println("Enter phone number:");
-					phone = input.readLine();
+				while (quantity < 0) {
+					System.out.println("Quantity must be greater than or equal to 0");
+					System.out.println("Enter quantity:");
+					quantity = Integer.parseInt(input.readLine());
 				}
 				
-				System.out.println("CHOOSE TYPE OF HUMAN");
-				System.out.println("1. Teacher");
-				System.out.println("2. Student");
+				System.out.println("CHOOSE TYPE OF TRANSACTION");
+				System.out.println("1. Gold");
+				System.out.println("2. Currency");
 				int choose = Integer.parseInt(input.readLine());
 				while (choose !=1 && choose != 2) {
 					System.out.println("Please choose 1 or 2");
-					System.out.println("CHOOSE TYPE OF HUMAN");
-					System.out.println("1. Teacher");
-					System.out.println("2. Student");
+					System.out.println("CHOOSE TYPE OF TRANSACTION");
+					System.out.println("1. Gold");
+					System.out.println("2. Currency");
 					choose = Integer.parseInt(input.readLine());
 				}
 
 				switch (choose) {
 					case 1:
-						System.out.println("Enter class of homeroom:");
-						String classHomeroom = input.readLine();
+						System.out.println("Enter type of GOLD: ");
+						System.out.println("1. 18K");
+						System.out.println("2. 24K");
+						System.out.println("3. SJC");
+						int typeOfGold = Integer.parseInt(input.readLine());
+						
+						while (choose != 1 && choose != 2 && choose != 3) {
+							System.out.println("Please choose 1 or 2 or 3");
+							System.out.println("Enter type of GOLD: ");
+							System.out.println("1. 18K");
+							System.out.println("2. 24K");
+							System.out.println("3. SJC");
+							typeOfGold = Integer.parseInt(input.readLine());
+						}
+						
+				//		TypeGold 
 						
 						System.out.println("Enter pay rate:");
 						double payRate = Double.parseDouble(input.readLine());
@@ -115,10 +115,10 @@ public class Exercise110Handling {
 							fringeBenefits = Double.parseDouble(input.readLine());
 						}
 						
-						human = Arrays.copyOf(human, human.length + 1);
+						listTeachers = Arrays.copyOf(listTeachers, listTeachers.length + 1);
 						teacher = new Exercise110Teacher(name, dateOfBirth, address, phone, 
 										classHomeroom, payRate, fringeBenefits);
-						human[human.length - 1] = teacher;
+						listTeachers[listTeachers.length - 1] = teacher;
 						
 						break;
 					case 2:
@@ -143,15 +143,19 @@ public class Exercise110Handling {
 							semester2Score = Double.parseDouble(input.readLine());
 						}
 						
-						human = Arrays.copyOf(human, human.length + 1);
+						listStudents = Arrays.copyOf(listStudents, listStudents.length + 1);
 						student = new Exercise110Student(name, dateOfBirth, address, phone,
 								studentOfClass, semester1Score, semester2Score);
-						human[human.length - 1] = student;
+						listStudents[listStudents.length - 1] = student;
 						
 						break;
 				}
 				
-				printArray(human);
+				managementHuman.setListTeachers(listTeachers);
+				managementHuman.setListStudents(listStudents);
+				
+				System.out.print(managementHuman.toString());
+				System.out.println("======================");
 				
 				int flagAddNewHuman = 0;
 				while (flagAddNewHuman == 0) {
@@ -181,11 +185,10 @@ public class Exercise110Handling {
 					break;
 				}
 			}
-			
 		}
-		catch (IOException | NumberFormatException | ParseException ex) {
+		catch (IOException | NumberFormatException ex) {
 			System.out.println("Exception: " + ex);
-		}
+		}*/
 
 	}
 

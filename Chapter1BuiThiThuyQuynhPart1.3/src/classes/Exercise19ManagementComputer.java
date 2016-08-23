@@ -69,12 +69,16 @@ public class Exercise19ManagementComputer {
 		DecimalFormat format = new DecimalFormat("#,###");
 		String result = "";
 		result += "======= INFORMATION OF LAPTOPS ========\n";
-		for (int i = 0; i < this.laptops.length; i++)
+		for (int i = 0; i < this.laptops.length; i++) {
 			result += this.laptops[i].toString() + "\n";
+			System.out.println("------------------------");
+		}
 		
 		result += "======= INFORMATION OF DESKTOPS =======\n";
-		for (int i = 0; i < this.desktops.length; i++)
+		for (int i = 0; i < this.desktops.length; i++) {
 			result += this.desktops[i].toString() + "\n";
+			System.out.println("----------------------");
+		}
 		
 		result += "============= TOTALS AMOUNT ============\n";
 		result += "Totals amount of laptops: " + format.format(sumFeeLapTop()) + "\n";

@@ -3,7 +3,7 @@
  * Date: 22/08/2016
  * Version: 1.0
  * 
- *  Class manages the information of a type of desktop extends from exercise19Computer
+ *  Class manages the information of a type of desktop extends from exercise19Computer class
  */
 
 package classes;

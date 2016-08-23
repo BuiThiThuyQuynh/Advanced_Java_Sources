@@ -1,3 +1,11 @@
+/**
+ * Author: Bui Thi Thuy Quynh
+ * Date: 22/08/2016
+ * Version: 1.0
+ * 
+ *  Class manges a student, extends from exercise110Human class
+ */
+
 package classes;
 
 import java.util.Date;

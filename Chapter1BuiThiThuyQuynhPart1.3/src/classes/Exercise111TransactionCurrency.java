@@ -85,19 +85,31 @@ public class Exercise111TransactionCurrency extends Exercise111Transaction {
 	}
 	
 	/**
-	 * Function: calculate amount of transaction gold
+	 * Function: calculate amount of transaction currency
 	 * Input: no
-	 * Output: totals amount of transaction
+	 * Output: totals amount of purchase transaction
 	 */
-	public double calFee() {
+	public double calFeePurchase() {
 		return this.quantity * this.price;
+	}
+	
+	/**
+	 * Function: calculate amount of transaction currency
+	 * Input: no
+	 * Output: totals amount of sale transaction
+	 */
+	public double calFeeSale() {
+		return this.quantity * this.price + (this.quantity * this.price) * 0.001;
 	}
 	
 	@Override
 	public String toString() {
 		String result = super.toString();
-		result += "Type of GOLD: " + this.getTypeGold().name() + "\n";
-		result += "Totals amount: " + this.calFee() + "VND\n";
+		result += "Type of currency: " + this.getTypeCurrency().name() + "\n";
+		if (this.typeTransaction.name().equals("PURCHASE"))
+			result += "Totals amount sale: " + this.calFeeSale() + "VND\n";
+		else
+			result += "Totals amount purchase: " + this.calFeePurchase() + "VND\n";
 		return result;
 	}
 }
