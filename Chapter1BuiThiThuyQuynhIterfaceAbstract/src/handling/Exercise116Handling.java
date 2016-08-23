@@ -134,8 +134,8 @@ public class Exercise116Handling {
 						System.out.println("Enter speed reverse with water:");
 						int speedReverse = Integer.parseInt(input.readLine());
 						
-						while (speedReverse <= 0) {
-							System.out.println("Speed reverse must be greater than 0");
+						while (speedReverse >= speedStraight) {
+							System.out.println("Speed reverse must be less than speed straight");
 							System.out.println("Enter speed reverse with water:");
 							speedReverse = Integer.parseInt(input.readLine());
 						}

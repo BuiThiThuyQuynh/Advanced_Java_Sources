@@ -11,7 +11,7 @@ package interfaces;
 public interface Exercise116IUsingFuel {
 	
 	/**
-	 * Function: 
+	 * Function: calculation fuel used by transport
 	 * Input: no
 	 * Output: fuel has been consumed
 	 */

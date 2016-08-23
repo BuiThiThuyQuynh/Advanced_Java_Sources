@@ -11,9 +11,9 @@ package interfaces;
 public interface Exercise116IMoving {
 	
 	/**
-	 * Function: 
+	 * Function: calculation speed of transport
 	 * Input: no
-	 * Output: speed of transaction
+	 * Output: speed of transport
 	 */
 	double calSpeed();
 }
