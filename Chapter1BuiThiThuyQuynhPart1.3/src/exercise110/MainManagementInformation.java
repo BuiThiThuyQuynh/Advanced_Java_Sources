@@ -1,9 +1,7 @@
 /**
- * Author: Bui Thi Thuy Quynh
- * Date: 22/08/2016
- * Version: 1.0
- * 
- *  Class handles for Exercise110Student class, Exercise110Teacher class and Exercise110ManagementHuman class
+ * @author Bui Thi Thuy Quynh
+ * @date 22/08/2016
+ * @version 2.0
  */
 
 package exercise110;
@@ -18,25 +16,20 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * @description class handles for Student class, Teacher class and ManagementHuman class
+ */
 public class MainManagementInformation {
 	
 	/**
-	 * Function: check format of phone number
-	 * Input: phone
-	 * Output: phone number is correct format or not
+	 * @description function for check format of phone number
+	 * @param0 phone number
+	 * @return phone number is correct format or not
 	 */
 	public static boolean checkPhone(String phone) {
 		Pattern pattern = Pattern.compile("^[0][89][0-9]{8}|[0][1][0-9]{9}$");
 		Matcher matcher = pattern.matcher(phone);
 		return matcher.matches();
-	}
-	
-	public static void printArray(Human[] human) {
-		System.out.println("===============================");
-		for (int i = 0; i < human.length; i++) {
-			System.out.println(human[i].toString());
-			System.out.println("------------------------");
-		}
 	}
 
 	public static void main(String[] args) {
@@ -44,12 +37,16 @@ public class MainManagementInformation {
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 		
 		Human[] human = new Human[0];
+		ManagementHuman managementHuman = new ManagementHuman();
 		
 		Student student;
 		Teacher teacher;
 		
 		boolean flag = true;
 		try {
+			/**
+			 * enter the general information of a person and allow entering again
+			 */
 			while (flag) {
 				System.out.println("ENTER GENERAL INFORMATION OF A PERSON");
 				System.out.println("Enter name:");
@@ -76,13 +73,16 @@ public class MainManagementInformation {
 					phone = input.readLine();
 				}
 				
-				System.out.println("CHOOSE TYPE OF HUMAN");
+				/**
+				 * choose type teacher/student and enter the specific information
+				 */
+				System.out.println("CHOOSE TYPE TEACHER/STUDENT");
 				System.out.println("1. Teacher");
 				System.out.println("2. Student");
 				int choose = Integer.parseInt(input.readLine());
 				while (choose !=1 && choose != 2) {
 					System.out.println("Please choose 1 or 2");
-					System.out.println("CHOOSE TYPE OF HUMAN");
+					System.out.println("CHOOSE TYPE TEACHER/STUDENT");
 					System.out.println("1. Teacher");
 					System.out.println("2. Student");
 					choose = Integer.parseInt(input.readLine());
@@ -102,7 +102,7 @@ public class MainManagementInformation {
 							payRate = Double.parseDouble(input.readLine());
 						}
 						
-						System.out.println("Enter fringe benefits:");
+						System.out.println("Enter fringe benefits (VND):");
 						double fringeBenefits = Double.parseDouble(input.readLine());
 						
 						while (fringeBenefits < 0) {
@@ -147,8 +147,14 @@ public class MainManagementInformation {
 						break;
 				}
 				
-				printArray(human);
+				/**
+				 * printing list human entered
+				 */
+				System.out.print(managementHuman.printArray(human));
 				
+				/**
+				 * ask if user want to add new person
+				 */
 				int flagAddNewHuman = 0;
 				while (flagAddNewHuman == 0) {
 					System.out.println("Are you add a new computer [y/n]?");

@@ -1,5 +1,14 @@
+/**
+ * @author Bui Thi Thuy Quynh
+ * @date 24/08/2016
+ * @version 2.0
+ */
+
 package exercise111;
 
+/**
+ * @description enum for type of currency
+ */
 public enum TypeCurrency {
 	
 	USD(22.250, 22.335),

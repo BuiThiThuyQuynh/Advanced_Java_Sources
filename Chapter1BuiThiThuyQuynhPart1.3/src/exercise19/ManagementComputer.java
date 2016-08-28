@@ -1,88 +1,42 @@
 /**
- * Author: Bui Thi Thuy Quynh
- * Date: 22/08/2016
- * Version: 1.0
- * 
- *  Class manages the computers included laptop and desktop
+ * @author Bui Thi Thuy Quynh
+ * @date 22/08/2016
+ * @version 2.0
  */
 
 package exercise19;
 
-import java.text.DecimalFormat;
-
+/**
+ * @description class manages the computers included laptops and desktops
+ */
 public class ManagementComputer {
-	
-	Laptop[] laptops;
-	Desktop[] desktops;
 	
 	public ManagementComputer() {
 		
 	}
-	
-	public ManagementComputer(Laptop[] laptops, Desktop[] desktops) {
-		this.laptops = laptops;
-		this.desktops = desktops;
-	}
-	
-	public Laptop[] getLaptops() {
-		return laptops;
-	}
-	
-	public void setLaptops(Laptop[] laptops) {
-		this.laptops = laptops;
-	}
-	
-	public Desktop[] getDesktops() {
-		return desktops;
-	}
-	
-	public void setDesktops(Desktop[] desktops) {
-		this.desktops = desktops;
-	}
 
 	/**
-	 * Function: calculation fee of type of laptops
-	 * Input: no
-	 * Output: totals amount of laptops
+	 * @description calculation fee of array computers
+	 * @return totals amount of computers in array
 	 */
-	public double sumFeeLapTop() {
+	public double sumFee(Computer[] computers) {
 		double result = 0;
-		for (int i = 0; i < laptops.length; i++)
-			result += laptops[i].calFee();
+		for (int i = 0; i < computers.length; i++)
+			result += computers[i].calFee();
 		return result;
 	}
 	
 	/**
-	 * Function: calculation fee of type of desktop
-	 * Input: no
-	 * Output: totals amount of desktop
+	 * @description function for printing the information of array computers
+	 * @return string for the information of array computers
 	 */
-	public double sumFeeDesktop() {
-		double result = 0;
-		for (int i = 0; i < desktops.length; i++)
-			result += desktops[i].calFee();
-		return result;
-	}
-	
-	@Override
-	public String toString() {
-		DecimalFormat format = new DecimalFormat("#,###");
+	public String printInformation(Computer[] computers) {
 		String result = "";
-		result += "======= INFORMATION OF LAPTOPS ========\n";
-		for (int i = 0; i < this.laptops.length; i++) {
-			result += this.laptops[i].toString() + "\n";
+		for (int i = 0; i < computers.length; i++) {
+			result += computers[i].toString();
 			result += "------------------------\n";
 		}
 		
-		result += "======= INFORMATION OF DESKTOPS =======\n";
-		for (int i = 0; i < this.desktops.length; i++) {
-			result += this.desktops[i].toString() + "\n";
-			result += "----------------------\n";
-		}
-		
-		result += "============= TOTALS AMOUNT ============\n";
-		result += "Totals amount of laptops: " + format.format(sumFeeLapTop()) + "\n";
-		result += "Totals amount of desktops: " + format.format(sumFeeDesktop()) + "\n";
 		return result;
 	}
 }

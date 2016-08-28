@@ -1,15 +1,16 @@
 /**
- * Author: Bui Thi Thuy Quynh
- * Date: 22/08/2016
- * Version: 1.0
- * 
- *  Class manges a transaction gold, extends from Exercise111Transaction class
+ * @author Bui Thi Thuy Quynh
+ * @date 22/08/2016
+ * @version 2.0
  */
 
 package exercise111;
 
 import java.util.Date;
 
+/**
+ * @description class manages a transaction gold, extends from Transaction class
+ */
 public class TransactionCurrency extends Transaction {
 
 	private final double RATE = 0.001;
@@ -45,45 +46,38 @@ public class TransactionCurrency extends Transaction {
 	}
 	
 	/**
-	 * Function: set new price for currency depend on type of transaction and type of currency
-	 * Input: price
-	 * Output: price of currency depend on type of currency
+	 * @description set new price for currency depend on type of transaction and type of currency
+	 * @param0 price of currency
+	 * @return new price of currency (depend on type of currency)
 	 */
 	@Override
 	protected void setPrice(double price) {
-		if (this.typeTransaction.name().equals(TypeTransaction.PURCHASE))
+		if (TypeTransaction.PURCHASE.equals(this.typeTransaction.name()))
 			super.setPrice(typeCurrency.getPricePurchase());
 		else
 			super.setPrice(typeCurrency.getPricePurchase());
 	}
 	
 	/**
-	 * Function: calculate amount of transaction currency
-	 * Input: no
-	 * Output: totals amount of purchase transaction
+	 * @description function for calculating total amount of transaction currency
+	 * @return totals amount of transaction currency
 	 */
-	public double calFeePurchase() {
-		return this.quantity * this.price;
-	}
-	
-	/**
-	 * Function: calculate amount of transaction currency
-	 * Input: no
-	 * Output: totals amount of sale transaction
-	 */
-	public double calFeeSale() {
+	public double calFee() {
+		if (TypeTransaction.PURCHASE.equals(this.typeTransaction))
+			return this.quantity * this.price;
 		return this.quantity * this.price + (this.quantity * this.price) * RATE;
 	}
 	
+	/**
+	 * @description function for get all the information a=of transaction currency
+	 * @return string about the information of a transaction currency
+	 */
 	@Override
 	public String toString() {
 		String result = super.toString();
 		result += "Type of currency: " + this.getTypeCurrency().name() + "\n";
 		result += "Type of transaction: " + this.getTypeTransaction().name() + "\n";
-		if (this.typeTransaction.name().equals(TypeTransaction.PURCHASE))
-			result += "Totals amount sale: " + this.calFeeSale() + "VND\n";
-		else
-			result += "Totals amount purchase: " + this.calFeePurchase() + "VND\n";
+		result += "Totals amount: " + this.calFee() + "VND\n";
 		return result;
 	}
 }

@@ -1,11 +1,7 @@
 /**
- * Author: Bui Thi Thuy Quynh
- * Date: 22/08/2016
- * Version: 1.0
- * 
- * JUnit Test for checkPhone() method of Exercise110Handling class
- * Input: phone number
- * Output: phone number is validate or not
+ * @author Bui Thi Thuy Quynh
+ * @date 22/08/2016
+ * @version 2.0
  */
 
 package exercise110;
@@ -14,6 +10,11 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+/**
+ * @description JUnit Test for checkPhone() method of MainManagementInformation class
+ * @param phone number
+ * @return phone number is validate or not
+ */
 public class CheckPhoneJUnitTest {
 
 	@Test

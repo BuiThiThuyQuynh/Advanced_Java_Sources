@@ -1,9 +1,7 @@
 /**
- * Author: Bui Thi Thuy Quynh
- * Date: 22/08/2016
- * Version: 1.0
- * 
- *  Class handles for Exercise112TextBook class, Exercise112ReferenceBook class and Exercise112ManagementBook class
+ * @author Bui Thi Thuy Quynh
+ * @date 22/08/2016
+ * @version 2.0
  */
 
 package exercise112;
@@ -11,12 +9,31 @@ package exercise112;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 
+/**
+ * @description class handles for TextBook class, ReferenceBook class, Book class and ManagementBook class
+ */
 public class MainManagementBook {
+	
+	/**
+	 * @description function for printing the information of array books
+	 */
+	public static void printInformation(ManagementBook books, TextBook[] textBooks, ReferenceBook[] referBooks) {
+		DecimalFormat format = new DecimalFormat("#,###");
+		System.out.println("========== INFORMATION OF TEXTBOOKS ===========");
+		System.out.print(books.printInformation(textBooks));
+		System.out.println("========== INFORMATION OF REFERENCE BOOKS ===========");
+		System.out.print(books.printInformation(referBooks));
+		System.out.println("======================");
+		System.out.println("Total amount of textbooks: " + format.format(books.calFee(textBooks)));
+		System.out.println("Total amount of references books: " + format.format(books.calFee(referBooks)));
+		System.out.println("Average price of references books: " + format.format(books.calAveragePrice(referBooks)));
+	}
 
 	public static void main(String[] args) {
 		
@@ -31,6 +48,9 @@ public class MainManagementBook {
 		
 		boolean flag = true;
 		try {
+			/**
+			 * enter the general information of a book and allow entering again
+			 */
 			while (flag) {
 				System.out.println("ENTER INFORMATION OF A BOOK");
 				System.out.println("Enter ID:");
@@ -47,12 +67,12 @@ public class MainManagementBook {
 				
 				Date dateEntered = dateFormat.parse(date);
 				
-				System.out.println("Enter price:");
+				System.out.println("Enter price (VND):");
 				double price = Double.parseDouble(input.readLine());
 				
 				while (price < 0) {
 					System.out.println("Price must be greater than or equal to 0");
-					System.out.println("Enter price:");
+					System.out.println("Enter price (VND):");
 					price = Double.parseDouble(input.readLine());
 				}
 				
@@ -69,7 +89,9 @@ public class MainManagementBook {
 				System.out.println("Enter publishing company:");
 				String publishingCompany = input.readLine();
 				
-				
+				/**
+				 * choose type of book and enter the specific information
+				 */
 				System.out.println("CHOOSE TYPE OF BOOK");
 				System.out.println("1. Textbook");
 				System.out.println("2. Reference book");
@@ -125,12 +147,15 @@ public class MainManagementBook {
 						break;
 				}
 				
-				managementBook.setListTextBook(listTextBook);
-				managementBook.setListReferenceBook(listReferBook);
 				
-				System.out.print(managementBook.toString());
-				System.out.println("======================");
+				/**
+				 * printing list computer entered
+				 */
+				printInformation(managementBook, listTextBook, listReferBook);
 				
+				/**
+				 * ask if user want to add new computer
+				 */
 				int flagAddBook = 0;
 				while (flagAddBook == 0) {
 					System.out.println("Are you add a new computer [y/n]?");

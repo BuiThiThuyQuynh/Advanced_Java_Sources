@@ -96,6 +96,9 @@ public class MainManagementFighting {
 				System.out.println("=============");
 			}
 			
+			/**
+			 * if power of trooper or infantryman is out of, program will stop
+			 */
 			if (!trooper.checkPower()) {
 				System.out.println("The fight end");
 				System.out.println("Infantryman is winner");

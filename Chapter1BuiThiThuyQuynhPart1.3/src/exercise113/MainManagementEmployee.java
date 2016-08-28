@@ -1,9 +1,7 @@
 /**
- * Author: Bui Thi Thuy Quynh
- * Date: 24/08/2016
- * Version: 1.0
- * 
- *  Class handles for Exercise113BusinessEmployee class, Exercise113ProductionEmployee class and Exercise113ManagementEmployee class
+ * @author Bui Thi Thuy Quynh
+ * @date 24/08/2016
+ * @version 2.0
  */
 
 package exercise113;
@@ -11,9 +9,27 @@ package exercise113;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.DecimalFormat;
 import java.util.Arrays;
 
+/**
+ * @description class handles for BusinessEmployee class, ProductionEmployee, Employee class class and ManagementEmployee class
+ */
 public class MainManagementEmployee {
+	
+	/**
+	 * @description function for printing the information of array employees
+	 */
+	public static void printInformation(ManagementEmployee employees, ProductionEmployee[] procEmployees, BusinessEmployee[] businessEmployee) {
+		DecimalFormat format = new DecimalFormat("#,###");
+		System.out.println("========== INFORMATION OF PRODUCTION EMPLOYEES ===========");
+		System.out.print(employees.printInformation(procEmployees));
+		System.out.println("========== INFORMATION OF REFERENCE BOOKS ===========");
+		System.out.print(employees.printInformation(businessEmployee));
+		System.out.println("======================");
+		System.out.println("Average salary of production employees: " + format.format(employees.averageSalary(procEmployees)));
+		System.out.println("Average salary of business employees: " + format.format(employees.averageSalary(businessEmployee)));
+	}
 
 	public static void main(String[] args) {
 		
@@ -28,6 +44,9 @@ public class MainManagementEmployee {
 		
 		boolean flag = true;
 		try {
+			/**
+			 * enter the general information of a employee and allow entering again
+			 */
 			while (flag) {
 				System.out.println("Enter full name of employee: ");
 				String name = input.readLine();
@@ -59,6 +78,9 @@ public class MainManagementEmployee {
 					allowance = Double.parseDouble(input.readLine());
 				}
 				
+				/**
+				 * choose type of employee and enter the specific information
+				 */
 				System.out.println("CHOOSE TYPE OF EMPLOYEE");
 				System.out.println("1. Business Employee");
 				System.out.println("2. Production Employee");
@@ -115,12 +137,14 @@ public class MainManagementEmployee {
 						break;
 				}
 				
-				managementEmployee.setListBusinessEmployee(listBusinessEmployee);
-				managementEmployee.setListProductionEmployee(listProductionEmployee);
+				/**
+				 * printing list computer entered
+				 */
+				printInformation(managementEmployee, listProductionEmployee, listBusinessEmployee);
 				
-				System.out.print(managementEmployee.toString());
-				System.out.println("======================");
-				
+				/**
+				 * ask if user want to add new computer
+				 */
 				int flagAddEmployee = 0;
 				while (flagAddEmployee == 0) {
 					System.out.println("Are you add a new computer [y/n]?");

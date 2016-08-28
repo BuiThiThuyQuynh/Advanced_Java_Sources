@@ -1,15 +1,16 @@
 /**
- * Author: Bui Thi Thuy Quynh
- * Date: 22/08/2016
- * Version: 1.0
- * 
- *  Class manages the information of a type of computer
+ * @author Bui Thi Thuy Quynh
+ * @date 22/08/2016
+ * @version 2.0
  */
 
 package exercise19;
 
 import java.text.DecimalFormat;
 
+/**
+ * @description class manages the information of a type of computer
+ */
 public class Computer {
 
 	protected String id;
@@ -61,14 +62,17 @@ public class Computer {
 	}
 	
 	/**
-	 * Fucntion: calculation fee of computer
-	 * Input: no
-	 * Output: totals amount of computer
+	 * @description function for calculation fee of a type of computer
+	 * @return total amount of a type of computer
 	 */
 	public double calFee() {
 		return this.price * this.quantity;
 	}
 	
+	/**
+	 * @description function for printing the information of a type of computer
+	 * @return string about information of a type of computer
+	 */
 	@Override
 	public String toString() {
 		DecimalFormat format = new DecimalFormat("#,###");

@@ -1,7 +1,7 @@
 /**
  * @author Bui Thi Thuy Quynh
  * @date 22/08/2016
- * @version 1.0
+ * @version 2.0
  */
 
 package exercise18;

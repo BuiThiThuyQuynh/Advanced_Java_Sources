@@ -1,9 +1,7 @@
 /**
- * Author: Bui Thi Thuy Quynh
- * Date: 22/08/2016
- * Version: 1.0
- * 
- *  Class manges a transaction
+ * @author Bui Thi Thuy Quynh
+ * @date 22/08/2016
+ * @version 2.0
  */
 
 package exercise111;
@@ -11,6 +9,9 @@ package exercise111;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * @description class manages the information of a transaction
+ */
 public class Transaction {
 
 	protected String id;
@@ -61,6 +62,18 @@ public class Transaction {
 		this.quantity = quantity;
 	}
 	
+	/**
+	 * @description function for calculating total amount of transaction
+	 * @return totals amount of transaction
+	 */
+	public double calFee() {
+		return 0;
+	}
+	
+	/**
+	 * @description function for get all information of a transaction
+	 * @return string about the information of a transaction
+	 */
 	@Override
 	public String toString() {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");

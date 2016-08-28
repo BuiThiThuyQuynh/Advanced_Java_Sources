@@ -1,9 +1,7 @@
 /**
- * Author: Bui Thi Thuy Quynh
- * Date: 22/08/2016
- * Version: 1.0
- * 
- *  Class manges a teacher, extends from exercise110Human class
+ * @author Bui Thi Thuy Quynh
+ * @date 22/08/2016
+ * @version 2.0
  */
 
 package exercise110;
@@ -11,6 +9,9 @@ package exercise110;
 import java.text.DecimalFormat;
 import java.util.Date;
 
+/**
+ * @description class manages a teacher, extends from Human class
+ */
 public class Teacher extends Human {
 
 	private final double BASICPAY = 1260000;
@@ -59,14 +60,17 @@ public class Teacher extends Human {
 	}
 	
 	/**
-	 * Function: calculation salary of teacher
-	 * Input: no
-	 * Output: salary of teacher
+	 * @description function for calculation salary of teacher
+	 * @return salary of teacher
 	 */
 	public double calSalary() {
 		return payRate * BASICPAY + fringeBenefits;
 	}
 	
+	/**
+	 * @description get all the information of a teacher
+	 * @return string about information of a teacher
+	 */
 	@Override
 	public String toString() {
 		DecimalFormat format = new DecimalFormat("#,###");
@@ -75,7 +79,7 @@ public class Teacher extends Human {
 		result += "Pay rate: " + this.payRate + "\n";
 		result += "Fringe benefits: " + format.format(this.fringeBenefits) + "VND\n";
 		result += "Class of homeroom: " + this.classHomeroom + "\n";
-		result += "Salary: " + format.format(this.calSalary());
+		result += "Salary: " + format.format(this.calSalary()) + "VND\n";
 		return result;
 	}
 	

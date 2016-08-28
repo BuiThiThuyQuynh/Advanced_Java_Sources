@@ -1,9 +1,7 @@
 /**
- * Author: Bui Thi Thuy Quynh
- * Date: 22/08/2016
- * Version: 1.0
- * 
- * Class manages the information of an human
+ * @author Bui Thi Thuy Quynh
+ * @date 22/08/2016
+ * @version 2.0
  */
 	
 package exercise110;
@@ -11,6 +9,9 @@ package exercise110;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * @description class manages the information of an human
+ */
 public class Human {
 
 	protected String name;
@@ -61,6 +62,10 @@ public class Human {
 		this.phone = phone;
 	}
 	
+	/**
+	 * @description get all information of a human
+	 * @return string about the information of a human
+	 */
 	@Override
 	public String toString() {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");

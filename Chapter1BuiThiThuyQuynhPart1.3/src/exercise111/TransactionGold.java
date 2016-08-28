@@ -1,15 +1,16 @@
 /**
- * Author: Bui Thi Thuy Quynh
- * Date: 22/08/2016
- * Version: 1.0
- * 
- *  Class manges a transaction gold, extends from Exercise111Transaction class
+ * @author Bui Thi Thuy Quynh
+ * @date 22/08/2016
+ * @version 2.0
  */
 
 package exercise111;
 
 import java.util.Date;
 
+/**
+ * @description class manages a transaction gold, extends from Transaction class
+ */
 public class TransactionGold extends Transaction {
 	
 	private TypeGold typeGold;
@@ -32,18 +33,16 @@ public class TransactionGold extends Transaction {
 	}
 	
 	/**
-	 * Function: calculate amount of transaction gold
-	 * Input: no
-	 * Output: totals amount of transaction
+	 * @description function for calculating total amount of transaction gold
+	 * @return totals amount of transaction gold
 	 */
 	public double calFee() {
 		return this.quantity * this.price;
 	}
 	
 	/**
-	 * Function: the information for printing
-	 * Input: no
-	 * Output: string to printing
+	 * @description function for get all the information a=of transaction gold
+	 * @return string about the information of a transaction gold
 	 */
 	@Override
 	public String toString() {

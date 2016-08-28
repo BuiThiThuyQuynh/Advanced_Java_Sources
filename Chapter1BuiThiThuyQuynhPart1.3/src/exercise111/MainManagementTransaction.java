@@ -1,9 +1,7 @@
 /**
- * Author: Bui Thi Thuy Quynh
- * Date: 22/08/2016
- * Version: 1.0
- * 
- *  Class handles for Exercise111TransactionGold class, Exercise110TransactionCurrency class
+ * @author Bui Thi Thuy Quynh
+ * @date 22/08/2016
+ * @version 2.0
  */
 
 package exercise111;
@@ -16,6 +14,10 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 
+/**
+ * @description class handles for TransactionGold class, TransactionCurrency class, 
+ * 					ManagementTransaction class and Transaction class
+ */
 public class MainManagementTransaction {
 
 	public static void main(String[] args) {
@@ -31,6 +33,9 @@ public class MainManagementTransaction {
 		
 		boolean flag = true;
 		try {
+			/**
+			 * enter the general information of a transaction and allow entering again
+			 */
 			while (flag) {
 				System.out.println("ENTER GENERAL INFORMATION OF A TRANSACTION");
 				System.out.println("Enter id:");
@@ -53,6 +58,9 @@ public class MainManagementTransaction {
 					quantity = Integer.parseInt(input.readLine());
 				}
 				
+				/**
+				 * choose type of transaction and enter the specific information
+				 */
 				System.out.println("CHOOSE TYPE OF TRANSACTION");
 				System.out.println("1. Gold");
 				System.out.println("2. Currency");
@@ -69,6 +77,9 @@ public class MainManagementTransaction {
 				
 				switch (choose) {
 					case 1:
+						/**
+						 * choose type of gold and enter the specific information
+						 */
 						System.out.println("Enter type of GOLD: ");
 						System.out.println("1. 18K");
 						System.out.println("2. 24K");
@@ -107,13 +118,11 @@ public class MainManagementTransaction {
 						transactionGold = new TransactionGold(id, dateOfTransaction, price, quantity, typeGold);
 						listTransGold[listTransGold.length - 1] = transactionGold;
 						
-//						managementTransaction.setListTransCurrency(listTransCurrency);
-//						managementTransaction.setListTransGold(listTransGold);
-//						
-//						System.out.println(managementTransaction.printTransacGold());
-						
 						break;
 					case 2:
+						/**
+						 * choose type of currency and enter the specific information
+						 */
 						System.out.println("Enter type of currency: ");
 						System.out.println("1. USD");
 						System.out.println("2. EUR");
@@ -182,13 +191,21 @@ public class MainManagementTransaction {
 						break;
 				}
 				
-				managementTransaction.setListTransCurrency(listTransCurrency);
-				managementTransaction.setListTransGold(listTransGold);
-				if (choose == 1)
-					System.out.println(managementTransaction.printTransacGold());
-				else
-					System.out.println(managementTransaction.printTransacCurrency());
+				/**
+				 * printing list human entered
+				 */
+				if (choose == 1) {
+					System.out.println("========== LIST TRANSACTION GOLD ================");
+					System.out.println(managementTransaction.printTransaction(listTransGold));
+				}
+				else {
+					System.out.println("========== LIST TRANSACTION CURRENCY ================");
+					System.out.println(managementTransaction.printTransaction(listTransCurrency));
+				}
 				
+				/**
+				 * ask if user want to add new transaction
+				 */
 				int flagAddTrans = 0;
 				while (flagAddTrans == 0) {
 					System.out.println("Are you add a new computer [y/n]?");

@@ -1,77 +1,14 @@
 /**
- * Author: Bui Thi Thuy Quynh
- * Date: 24/08/2016
- * Version: 1.0
- * 
- * Class manages the information of an employee
+ * @author Bui Thi Thuy Quynh
+ * @date 24/08/2016
+ * @version 2.0
  */
 
 package exercise113;
 
 /**
- * Enum for personal income tax grades
+ * @descrition class manages the information of an employee
  */
-enum PersonalTaxesRates {
-	
-	LEVEL1(0, 5000000, 0.05, 250000),
-	LEVEL2(5000001, 10000000, 0.1, 500000),
-	LEVEL3(10000001, 18000000, 0.15, 1200000),
-	LEVEL4(18000001, 32000000, 0.2, 2800000),
-	LEVEL5(32000001, 52000000, 0.25, 5000000),
-	LEVEL6(52000001, 80000000, 0.3, 8400000),
-	LEVEL7(80000001, 0.35);
-	
-	private double taxableSalaryStart;
-	private double taxableSalaryEnd;
-	private double tax;
-	private double maxtaxableSalary;
-	
-	private PersonalTaxesRates(double taxableSalaryStart, double taxableSalaryEnd, double tax,
-			double maxtaxableSalary) {
-		this.taxableSalaryStart = taxableSalaryStart;
-		this.taxableSalaryEnd = taxableSalaryEnd;
-		this.tax = tax;
-		this.maxtaxableSalary = maxtaxableSalary;
-	}
-
-	private PersonalTaxesRates(double taxableSalaryStart, double tax) {
-		this.taxableSalaryStart = taxableSalaryStart;
-		this.tax = tax;
-	}
-
-	public double getTaxableSalaryStart() {
-		return taxableSalaryStart;
-	}
-
-	public void setTaxableSalaryStart(double taxableSalaryStart) {
-		this.taxableSalaryStart = taxableSalaryStart;
-	}
-
-	public double getTaxableSalaryEnd() {
-		return taxableSalaryEnd;
-	}
-
-	public void setTaxableSalaryEnd(double taxableSalaryEnd) {
-		this.taxableSalaryEnd = taxableSalaryEnd;
-	}
-
-	public double getTax() {
-		return tax;
-	}
-
-	public void setTax(double tax) {
-		this.tax = tax;
-	}
-
-	public double getMaxtaxableSalary() {
-		return maxtaxableSalary;
-	}
-
-	public void setMaxtaxableSalary(double maxtaxableSalary) {
-		this.maxtaxableSalary = maxtaxableSalary;
-	}
-}
-
 public class Employee {
 	
 	private final double BASICSALARY = 1260000;
@@ -126,19 +63,25 @@ public class Employee {
 	}
 	
 	/**
-	 * Function: calculating salary of employee
-	 * Input: no
-	 * Output: salary of employee
+	 * @description calculating salary of employee
+	 * @return salary of employee
 	 */
 	public double calSalary() {
-		double result = coefficientsSalary * BASICSALARY;
+		double result = coefficientsSalary * BASICSALARY + calSalaryBonus();
 		return result;
 	}
 	
 	/**
-	 * Function: calculating taxable salary of employee
-	 * Input: no
-	 * Output: taxable salary of employee
+	 * @description calculating salary bonus of employee
+	 * @return salary bonus of employee
+	 */
+	public double calSalaryBonus() {
+		return 0;
+	}
+	
+	/**
+	 * @description calculating taxable salary of employee
+	 * @return taxable salary of employee
 	 */
 	public double calTaxableSalary() {
 		double result = calSalary() - TAXABLEBASICSALARY - numberOfFamily * ALLOWANCEFAMILY;
@@ -146,9 +89,8 @@ public class Employee {
 	}
 	
 	/**
-	 * Function: calculating personal taxes of employee
-	 * Input: no
-	 * Output: personal taxes of employee
+	 * @description calculating personal taxes of employee
+	 * @return personal taxes of employee
 	 */
 	public double calPersonalTaxes() {
 		double result = 0;
@@ -200,15 +142,18 @@ public class Employee {
 	}
 	
 	/**
-	 * Function: calculating real salary of employee
-	 * Input: no
-	 * Output: real salary of employee
+	 * @description calculating real salary of employee
+	 * @return real salary of employee
 	 */
 	public double calRealSalary() {
 		double result = calSalary() - calPersonalTaxes();
 		return result > 0 ? result : 0;
 	}
 	
+	/**
+	 * @description function for get all information of a employee
+	 * @return string about the information of a employee
+	 */
 	@Override
 	public String toString() {
 		String result = "Name: " + this.name + "\n";

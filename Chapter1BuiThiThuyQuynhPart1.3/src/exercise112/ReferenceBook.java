@@ -1,15 +1,16 @@
 /**
- * Author: Bui Thi Thuy Quynh
- * Date: 23/08/2016
- * Version: 1.0
- * 
- *  Class manges the information of a reference book, extends from Exercise112Book
+ * @author Bui Thi Thuy Quynh
+ * @date 23/08/2016
+ * @version 1.0
  */
 
 package exercise112;
 
 import java.util.Date;
 
+/**
+ * @description class manages the information of a reference book, extends from Book
+ */
 public class ReferenceBook extends Book {
 
 	private double tax;
@@ -33,15 +34,18 @@ public class ReferenceBook extends Book {
 	}
 	
 	/**
-	 * Function: calculation amount of reference book
-	 * Input: no
-	 * Output: totals amount of reference book
+	 * @description function for calculating fee of a reference book
+	 * @return fee of a reference book
 	 */
 	public double calFee() {
 		double result = this.quantity * this.price + (this.quantity * this.quantity) * this.tax;
 		return result;
 	}
 	
+	/**
+	 * @description function for get all information of a reference book
+	 * @return string about the information of a reference book
+	 */
 	@Override
 	public String toString() {
 		String result = super.toString();

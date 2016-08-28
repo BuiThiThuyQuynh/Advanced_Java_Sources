@@ -1,13 +1,14 @@
 /**
- * Author: Bui Thi Thuy Quynh
- * Date: 24/08/2016
- * Version: 1.0
- * 
- * Class manages the information of an business employee, extends from Exercise113Employee
+ * @author Bui Thi Thuy Quynh
+ * @date 24/08/2016
+ * @version 2.0
  */
 
 package exercise113;
 
+/**
+ * @description class manages the information of an business employee, extends from Employee class
+ */
 public class BusinessEmployee extends Employee {
 
 	private double payBusinessMonth;
@@ -41,25 +42,22 @@ public class BusinessEmployee extends Employee {
 	}
 	
 	/**
-	 * Function: calculation salary bonus
-	 * Input: no
-	 * Output: salary bonus of business employee
+	 * @description calculating salary bonus of employee
+	 * @return salary bonus of employee
 	 */
 	public double calSalaryBonus() {
 		return this.payBusinessMonth * this.businessPayRate;
 	}
 	
+	/**
+	 * @description function for get all information of a production employee
+	 * @return string about the information of a production employee
+	 */
 	@Override
 	public String toString() {
 		String result = super.toString();
 		result += "Business salary of month:" + this.payBusinessMonth + "\n";
 		result += "Business salary rate of month:" + this.businessPayRate + "\n";
-		return result;
-	}
-	
-	@Override
-	public double calSalary() {
-		double result = super.calSalary() + this.calSalaryBonus();
 		return result;
 	}
 }

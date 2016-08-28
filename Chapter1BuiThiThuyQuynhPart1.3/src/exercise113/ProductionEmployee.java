@@ -1,13 +1,14 @@
 /**
- * Author: Bui Thi Thuy Quynh
- * Date: 24/08/2016
- * Version: 1.0
- * 
- * Class manages the information of an production employee, extends from Exercise113Employee
+ * @author Bui Thi Thuy Quynh
+ * @date 24/08/2016
+ * @version 2.0
  */
 
 package exercise113;
 
+/**
+ * @description class manages the information of an production employee, extends from Employee
+ */
 public class ProductionEmployee extends Employee {
 
 	private final int PRODUCTLEVEL = 1000;
@@ -34,24 +35,22 @@ public class ProductionEmployee extends Employee {
 	}
 
 	/**
-	 * Function: calculation salary bonus
-	 * Input: no
-	 * Output: salary bonus of production employee
+	 * @description calculating salary bonus of employee
+	 * @return salary bonus of employee
 	 */
+	@Override
 	public double calSalaryBonus() {
 		return (this.quantityProduct - this.PRODUCTLEVEL) * this.BONUSRATE;
 	}
 	
+	/**
+	 * @description function for get all information of a production employee
+	 * @return string about the information of a production employee
+	 */
 	@Override
 	public String toString() {
 		String result = super.toString();
 		result += "Quantity product:" + this.quantityProduct + "\n";
-		return result;
-	}
-	
-	@Override
-	public double calSalary() {
-		double result = super.calSalary() + this.calSalaryBonus();
 		return result;
 	}
 }

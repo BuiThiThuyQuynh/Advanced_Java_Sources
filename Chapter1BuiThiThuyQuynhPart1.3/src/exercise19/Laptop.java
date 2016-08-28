@@ -1,13 +1,14 @@
 /**
- * Author: Bui Thi Thuy Quynh
- * Date: 22/08/2016
- * Version: 1.0
- * 
- *  Class manages the information of a type of laptop extends from Exercise19Computer class
+ * @author Bui Thi Thuy Quynh
+ * @date 22/08/2016
+ * @version: 2.0
  */
 
 package exercise19;
 
+/**
+ * @description class manages the information of a type of laptop extends from Computer class
+ */
 public class Laptop extends Computer {
 	
 	private double weight;
@@ -50,6 +51,10 @@ public class Laptop extends Computer {
 		this.sizeOfScreen = sizeOfScreen;
 	}
 	
+	/**
+	 * @description function for printing the information of a type of laptop
+	 * @return string for the information of laptop
+	 */
 	@Override
 	public String toString() {
 		String result = super.toString();

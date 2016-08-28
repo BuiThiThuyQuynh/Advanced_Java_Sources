@@ -1,9 +1,7 @@
 /**
- * Author: Bui Thi Thuy Quynh
- * Date: 23/08/2016
- * Version: 1.0
- * 
- *  Class manges the information of a book
+ * @author Bui Thi Thuy Quynh
+ * @date 23/08/2016
+ * @version 2.0
  */
 
 package exercise112;
@@ -12,6 +10,9 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * @description class manages the information of a book
+ */
 public class Book {
 
 	protected String id;
@@ -83,6 +84,18 @@ public class Book {
 		this.publishingCompany = publishingCompany;
 	}
 	
+	/**
+	 * @description function for calculating fee of a book
+	 * @return fee of a book
+	 */
+	public double calFee() {
+		return 0;
+	}
+	
+	/**
+	 * @description function for get all information of a book
+	 * @return string about the information of a book
+	 */
 	@Override
 	public String toString() {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
