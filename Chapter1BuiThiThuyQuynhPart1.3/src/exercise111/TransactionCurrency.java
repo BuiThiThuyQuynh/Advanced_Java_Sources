@@ -43,20 +43,20 @@ public class TransactionCurrency extends Transaction {
 	public void setTypeTransaction(TypeTransaction typeTransaction) {
 		this.typeTransaction = typeTransaction;
 	}
-
+	
 	/**
-	 * Function: set price for currency
-	 * Input: new price
-	 * Output: no
+	 * Function: set new price for currency depend on type of transaction and type of currency
+	 * Input: price
+	 * Output: price of currency depend on type of currency
 	 */
-//	@Override
-//	protected void setPrice(double price) {
-//		if (this.typeTransaction.name().equals(TypeTransaction.PURCHASE))
-//			super.setPrice(this.typeCurrency.getPricePurchase());
-//		else
-//			super.setPrice(this.typeCurrency.getPriceSale());
-//	}
-//	
+	@Override
+	protected void setPrice(double price) {
+		if (this.typeTransaction.name().equals(TypeTransaction.PURCHASE))
+			super.setPrice(typeCurrency.getPricePurchase());
+		else
+			super.setPrice(typeCurrency.getPricePurchase());
+	}
+	
 	/**
 	 * Function: calculate amount of transaction currency
 	 * Input: no

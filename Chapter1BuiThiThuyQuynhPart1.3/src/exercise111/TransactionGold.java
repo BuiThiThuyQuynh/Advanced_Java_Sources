@@ -32,16 +32,6 @@ public class TransactionGold extends Transaction {
 	}
 	
 	/**
-	 * Function: set price for gold
-	 * Input: new price
-	 * Output: no
-	 */
-//	@Override
-//	protected void setPrice(double price) {
-//		super.setPrice(typeGold.getPrice());
-//	}
-
-	/**
 	 * Function: calculate amount of transaction gold
 	 * Input: no
 	 * Output: totals amount of transaction

@@ -1,13 +1,7 @@
 /**
- * Author: Bui Thi Thuy Quynh
- * Date: 22/08/2016
- * Version: 1.0
- * 
- * JUnit Test for checkPower() method of Exercise18Handling
- * Input: infantryman, trooper
- * Output: result of checking (1 if power of infantryman <= 0
- * 							   2 if power of trooper <= 0
- * 							   3 if others)
+ * @author Bui Thi Thuy Quynh
+ * @date 22/08/2016
+ * @version2 2.0
  */
 
 package exercise18;
@@ -16,109 +10,141 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+/**
+* @description JUnit Test for checkPower() method of Soldier
+* @return power of soldier is out of or not
+*/
 public class CheckPowerJUnitTest {
 	
-	Infantryman infan;
-	Trooper trooper;
+	Soldier soldier;
 
 	@Test
 	public void testCheckPower1() {
-		infan = new Infantryman("Italia", 10, "Gun");
-		trooper = new Trooper("France", 12, "Boom");
+		/**
+		 * @param0 name of soldier
+		 * @param1 power of soldier
+		 * @param2 weapon of soldier
+		 */
+		soldier = new Infantryman("Italia", 10, "Gun");
 		
-		int ex = 3;
-		int ac = MainManagementFighting.checkPower(infan, trooper);
-		assertEquals(ex, ac);
+		boolean ac = soldier.checkPower();
+		assertTrue(ac);
 	}
 	
 	@Test
 	public void testCheckPower2() {
-		infan = new Infantryman("Italia", 7, "Gun");
-		trooper = new Trooper("France", -3, "Boom");
+		/**
+		 * @param0 name of soldier
+		 * @param1 power of soldier
+		 * @param2 weapon of soldier
+		 */
+		soldier = new Trooper("France", 6, "Gun");
 		
-		int ex = 2;
-		int ac = MainManagementFighting.checkPower(infan, trooper);
-		assertEquals(ex, ac);
+		boolean ac = soldier.checkPower();
+		assertTrue(ac);
 	}
 	
 	@Test
 	public void testCheckPower3() {
-		infan = new Infantryman("Italia", 0, "Gun");
-		trooper = new Trooper("France", 12, "Boom");
+		/**
+		 * @param0 name of soldier
+		 * @param1 power of soldier
+		 * @param2 weapon of soldier
+		 */
+		soldier = new Infantryman("Italia", 0, "Gun");
 		
-		int ex = 1;
-		int ac = MainManagementFighting.checkPower(infan, trooper);
-		assertEquals(ex, ac);
+		boolean ac = soldier.checkPower();
+		assertFalse(ac);
 	}
 	
 	@Test
 	public void testCheckPower4() {
-		infan = new Infantryman("Italia", 10, "Gun");
-		trooper = new Trooper("France", 0, "Boom");
+		/**
+		 * @param0 name of soldier
+		 * @param1 power of soldier
+		 * @param2 weapon of soldier
+		 */
+		soldier = new Trooper("France", 0, "Gun");
 		
-		int ex = 2;
-		int ac = MainManagementFighting.checkPower(infan, trooper);
-		assertEquals(ex, ac);
+		boolean ac = soldier.checkPower();
+		assertFalse(ac);
 	}
 	
 	@Test
 	public void testCheckPower5() {
-		infan = new Infantryman("Italia", -2, "Gun");
-		trooper = new Trooper("France", 12, "Boom");
+		/**
+		 * @param0 name of soldier
+		 * @param1 power of soldier
+		 * @param2 weapon of soldier
+		 */
+		soldier = new Infantryman("Italia", -3, "Gun");
 		
-		int ex = 1;
-		int ac = MainManagementFighting.checkPower(infan, trooper);
-		assertEquals(ex, ac);
+		boolean ac = soldier.checkPower();
+		assertFalse(ac);
 	}
 	
 	@Test
 	public void testCheckPower6() {
-		infan = new Infantryman("Italia", 10, "Gun");
-		trooper = new Trooper("France", 12, "Boom");
+		/**
+		 * @param0 name of soldier
+		 * @param1 power of soldier
+		 * @param2 weapon of soldier
+		 */
+		soldier = new Trooper("France", -2, "Gun");
 		
-		int ex = 1;
-		int ac = MainManagementFighting.checkPower(infan, trooper);
-		assertNotEquals(ex, ac);
+		boolean ac = soldier.checkPower();
+		assertFalse(ac);
 	}
 	
 	@Test
 	public void testCheckPower7() {
-		infan = new Infantryman("Italia", -2, "Gun");
-		trooper = new Trooper("France", 12, "Boom");
+		/**
+		 * @param0 name of soldier
+		 * @param1 power of soldier
+		 * @param2 weapon of soldier
+		 */
+		soldier = new Infantryman("Italia", 5, "Gun");
 		
-		int ex = 2;
-		int ac = MainManagementFighting.checkPower(infan, trooper);
-		assertNotEquals(ex, ac);
+		boolean ac = soldier.checkPower();
+		assertTrue(ac);
 	}
 	
 	@Test
 	public void testCheckPower8() {
-		infan = new Infantryman("Italia", 10, "Gun");
-		trooper = new Trooper("France", -3, "Boom");
+		/**
+		 * @param0 name of soldier
+		 * @param1 power of soldier
+		 * @param2 weapon of soldier
+		 */
+		soldier = new Trooper("France", 1, "Gun");
 		
-		int ex = 3;
-		int ac = MainManagementFighting.checkPower(infan, trooper);
-		assertNotEquals(ex, ac);
+		boolean ac = soldier.checkPower();
+		assertTrue(ac);
 	}
 	
 	@Test
 	public void testCheckPower9() {
-		infan = new Infantryman("Italia", 10, "Gun");
-		trooper = new Trooper("France", 12, "Boom");
+		/**
+		 * @param0 name of soldier
+		 * @param1 power of soldier
+		 * @param2 weapon of soldier
+		 */
+		soldier = new Infantryman("Italia", -1, "Gun");
 		
-		int ex = 1;
-		int ac = MainManagementFighting.checkPower(infan, trooper);
-		assertNotEquals(ex, ac);
+		boolean ac = soldier.checkPower();
+		assertFalse(ac);
 	}
 	
 	@Test
 	public void testCheckPower10() {
-		infan = new Infantryman("Italia", 10, "Gun");
-		trooper = new Trooper("France", 12, "Boom");
+		/**
+		 * @param0 name of soldier
+		 * @param1 power of soldier
+		 * @param2 weapon of soldier
+		 */
+		soldier = new Trooper("France", 7, "Gun");
 		
-		int ex = 2;
-		int ac = MainManagementFighting.checkPower(infan, trooper);
-		assertNotEquals(ex, ac);
+		boolean ac = soldier.checkPower();
+		assertTrue(ac);
 	}
-
 }

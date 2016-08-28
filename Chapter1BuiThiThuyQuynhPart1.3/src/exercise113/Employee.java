@@ -142,7 +142,7 @@ public class Employee {
 	 */
 	public double calTaxableSalary() {
 		double result = calSalary() - TAXABLEBASICSALARY - numberOfFamily * ALLOWANCEFAMILY;
-		return result;
+		return result > 0 ? result : 0;
 	}
 	
 	/**
@@ -206,7 +206,7 @@ public class Employee {
 	 */
 	public double calRealSalary() {
 		double result = calSalary() - calPersonalTaxes();
-		return result;
+		return result > 0 ? result : 0;
 	}
 	
 	@Override

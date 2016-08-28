@@ -20,7 +20,7 @@ public class MainManagementBook {
 
 	public static void main(String[] args) {
 		
-BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 		
 		TextBook[] listTextBook = new TextBook[0];
 		ReferenceBook[] listReferBook = new ReferenceBook[0];

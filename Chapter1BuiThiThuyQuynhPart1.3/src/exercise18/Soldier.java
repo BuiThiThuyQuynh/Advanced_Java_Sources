@@ -1,13 +1,14 @@
 /**
- * Author: Bui Thi Thuy Quynh
- * Date: 22/08/2016
- * Version: 1.0
- * 
- *  Class manages the information of a soldier
+ * @author: Bui Thi Thuy Quynh
+ * @date: 22/08/2016
+ * @version: 2.0
  */
 
 package exercise18;
 
+/**
+* @description class manages the information of a soldier
+ */
 public class Soldier {
 
 	protected String name;
@@ -48,17 +49,28 @@ public class Soldier {
 	}
 	
 	/**
-	 * Function: decreasing power of a soldier
-	 * Input: no
-	 * Output: no
+	 * @description function for decreasing power of a soldier after fight
+	 * @return power of soldier will decrease 1 after fight
 	 */
 	public int fight() {
 		this.power -= 1;
 		return this.power;
 	}
 	
+	/**
+	 * @description function for check power of a soldier after fight
+	 * @return power of soldier is out of or not
+	 */
+	public boolean checkPower() {
+		return this.power > 0;
+	}
+	
+	/**
+	 * @description function for printing information of soldier
+	 * @return string about information of soldier
+	 */
 	@Override
 	public String toString() {
-		return this.name +": " + this.power;
+		return checkPower() ? this.name + ": " + this.power : this.name  + " is out of power";
 	}
 }
