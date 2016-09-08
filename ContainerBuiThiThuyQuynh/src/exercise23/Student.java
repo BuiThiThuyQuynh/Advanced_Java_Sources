@@ -1,5 +1,12 @@
 package exercise23;
 
+/**
+ * @author Bui Thi Thuy Quynh
+ * @date 07/09/2016
+ * @version 1.0
+ * 
+ * @description Class manages the information of an student
+ */
 public class Student {
 
 	private String name;
@@ -40,6 +47,10 @@ public class Student {
 		this.address = address;
 	}
 	
+	/**
+	 * @description get the information of an student
+	 * @return string about information of an student
+	 */
 	@Override
 	public String toString() {
 		String result = "";

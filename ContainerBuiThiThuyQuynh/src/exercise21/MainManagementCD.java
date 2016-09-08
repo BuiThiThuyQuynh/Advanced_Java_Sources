@@ -1,11 +1,3 @@
-/**
- * Author: Bui Thi Thuy Quynh
- * Date: 19/08/2016
- * Version: 1.0
- * 
- * Class handles for Exercise17CD class and Exercise17ManagementCDs class
- */
-
 package exercise21;
 
 import java.io.BufferedReader;
@@ -13,6 +5,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+/**
+ * @author Bui Thi Thuy Quynh
+ * @date 07/09/2016
+ * @version 1.0
+ * 
+ * @description Class handles for others classes about management CD
+ */
 public class MainManagementCD {
 
 	public static void main(String[] args) {
@@ -25,6 +24,7 @@ public class MainManagementCD {
 				
 			boolean again = true;
 			while (again) {
+				// Enter and check validate information for a CD
 				System.out.println("------- CD " + (cds.size() + 1) + " --------");
 				
 				System.out.println("Enter ID: ");
@@ -54,41 +54,31 @@ public class MainManagementCD {
 					price = Double.parseDouble(input.readLine());
 				}
 				
+				// Add CD to list and print list CDs
 				cds.add(new CD(id, name, singer, numOfSongs, price));
-				
 				managementCDs.setCds(cds);
 				System.out.println(managementCDs.toString());
 				
-				/**
-				 *  If user want to add a new CD
-				 *  flag = 1 if user choose y or Y
-				 *  flag = 2 if user choose n or N
-				 *  flag = 0 if user choose others
-				 */
-				int flag = 0;
-				while (flag == 0) {
-					System.out.println("Are you add a new CD [y/n]?");
-					String temp = input.readLine();
-					switch (temp) {
-					case "y":
-					case "Y":
-						flag = 1;
-						break;
-					case "n":
-					case "N":
-						flag = 2;
-						break;
-					default:
-						System.out.println("This choose don't have. Please choosing again!");
-						break;
-					}
+				// Loop add CD if user want
+				System.out.println("=====================");
+				System.out.println("Do you continue add a new CD?");
+				System.out.println("1. Yes");
+				System.out.println("2. No");
+				int choose = Integer.parseInt(input.readLine());
+				while (choose <= 0 || choose > 2) {
+					System.out.println("Please choose 1 or 2");
+					System.out.println("Do you continue add a new CD?");
+					System.out.println("1. Yes");
+					System.out.println("2. No");
+					choose = Integer.parseInt(input.readLine());
 				}
-				
-				if (flag == 1) {
+					
+				switch (choose) {
+				case 1:
 					continue;
-				}
-				else {
-					System.out.println("The end");
+				case 2:
+				default:
+					System.out.println("Application ended");
 					again = false;
 					break;
 				}

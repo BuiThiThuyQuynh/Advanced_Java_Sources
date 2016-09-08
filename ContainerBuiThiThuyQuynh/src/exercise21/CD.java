@@ -1,15 +1,14 @@
-/**
- * Author: Bui Thi Thuy Quynh
- * Date: 19/08/2016
- * Version: 1.0
- * 
- * Class manages the information of an CD
- */
-
 package exercise21;
 
 import java.text.DecimalFormat;
 
+/**
+ * @author Bui Thi Thuy Quynh
+ * @date 07/09/2016
+ * @version 1.0
+ * 
+ * @description Class manages the information of an CD
+ */
 public class CD implements Comparable<CD> {
 	
 	private String id;
@@ -49,8 +48,6 @@ public class CD implements Comparable<CD> {
 	public String getSinger() {
 		return singer;
 	}
-	
-	
 
 	public void setSinger(String singer) {
 		this.singer = singer;
@@ -73,15 +70,13 @@ public class CD implements Comparable<CD> {
 	}
 	
 	/**
-	 * Function: print the information of an CD
-	 * Input: no
-	 * Output: string about information of an CD
+	 * @description get the information of an CD
+	 * @return string about information of an CD
 	 */
 	@Override
 	public String toString() {
 		DecimalFormat formatter = new DecimalFormat("#,###");
 		String result = "ID: " + id + "\n";
-		
 		result += "Name: " + name + "\n";
 		result += "Singer: " + singer + "\n";
 		result += "Number of songs: " + numOfSongs + "\n";
@@ -91,6 +86,10 @@ public class CD implements Comparable<CD> {
 		return result;
 	}
 	
+	/**
+	 * @description override compareTo method to compare two CD object
+	 * @return 
+	 */
 	@Override
 	public int compareTo(CD o) {
 		return (this.name).compareTo(o.name);

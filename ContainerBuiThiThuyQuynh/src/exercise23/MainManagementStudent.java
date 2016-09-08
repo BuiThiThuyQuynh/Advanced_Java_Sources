@@ -4,9 +4,24 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * @author Bui Thi Thuy Quynh
+ * @date 07/09/2016
+ * @version 1.0
+ * 
+ * @description Class handles for others classes about management student
+ */
 public class MainManagementStudent {
 	
+	/**
+	 * @description function show menu for user choose
+	 * @param0 input 
+	 * @param1 managementStudent
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
 	public static void showMenu(BufferedReader input, ManagementStudent managementStudent) throws NumberFormatException, IOException {
+		// Show menu
 		System.out.println("======== MENU ==========");
 		System.out.println("1. View list student");
 		System.out.println("2. Add student");
@@ -14,6 +29,7 @@ public class MainManagementStudent {
 		System.out.println("4. Remove student");
 		System.out.println("5. Exit");
 		
+		// Check choosing of user and show information for corresponding action 
 		int choose = Integer.parseInt(input.readLine());
 		while (choose <= 0 || choose > 5) {
 			System.out.println("Please choose from 1 to 5");
@@ -44,8 +60,18 @@ public class MainManagementStudent {
 			break;
 		}
 	}
-	
+
+	/**
+	 * @description show information for addition new student to list student
+	 * @param managementStudent
+	 * @param input
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
 	public static void viewListStudent(ManagementStudent managementStudent, BufferedReader input) throws NumberFormatException, IOException {
+		// Check list student not null --> show list student
+		// Else application ask user want to add new student or not. 
+		// 		If user choose yes, application will allow user add new student to list
 		if (managementStudent.getListStudent().size() != 0)
 			System.out.println(managementStudent.toString());
 		else {
@@ -77,9 +103,17 @@ public class MainManagementStudent {
 		showMenu(input, managementStudent);
 	}
 	
+	/**
+	 * @description show information for addition new student to list student
+	 * @param managementStudent
+	 * @param input
+	 * @throws IOException
+	 */
 	public static void addStudent(ManagementStudent managementStudent, BufferedReader input) throws IOException {
 		boolean again = true;
 		Student student;
+		
+		// Enter the information for new student and allow user continue entering if user want
 		while (again) {
 			System.out.println("Enter id: ");
 			String id = input.readLine();
@@ -122,29 +156,53 @@ public class MainManagementStudent {
 		
 		showMenu(input, managementStudent);
 	}
-	
+
+	/**
+	 * @description show information for searching student in list student
+	 * @param managementStudent
+	 * @param input
+	 * @throws IOException
+	 */
 	public static void searchStudent(ManagementStudent managementStudent, BufferedReader input) throws IOException {
-		System.out.println("Enter id of student want to search: ");
-		String id = input.readLine();
-		
-		Student studentFound = managementStudent.searchStudent(id);
-		
-		System.out.println("Search result: ");
-		if (studentFound == null)
-			System.out.println(id + " was not found");
-		else
-			System.out.println(studentFound.toString());
-		showMenu(input, managementStudent);
+		// Check list word in dictionary is null --> allow user add new student to list student
+		// Else application require user enter key word for searching and show result. 
+		if (managementStudent.getListStudent().size() == 0)
+			viewListStudent(managementStudent, input);
+		else {
+			System.out.println("Enter id of student want to search: ");
+			String id = input.readLine();
+			
+			Student studentFound = managementStudent.searchStudent(id);
+			
+			System.out.println("Search result: ");
+			if (studentFound == null)
+				System.out.println("Student have ID is " + id + " was not found");
+			else
+				System.out.println(studentFound.toString());
+			showMenu(input, managementStudent);
+		}
 	}
-	
+
+	/**
+	 * @description show information for deletion student in list student
+	 * @param managementStudent
+	 * @param input
+	 * @throws IOException
+	 */
 	public static void removeStudent(ManagementStudent managementStudent, BufferedReader input) throws IOException {
-		System.out.println("Enter id of student want to remove: ");
-		String id = input.readLine();
-		
-		System.out.println("Remove result:");
-		System.out.println(managementStudent.deleteStudent(id));
-		viewListStudent(managementStudent, input);
-		showMenu(input, managementStudent);
+		// Check list word in dictionary is null --> allow user add new student to list student
+		// Else application require user enter key word for deleting and show result. 
+		if (managementStudent.getListStudent().size() == 0)
+			viewListStudent(managementStudent, input);
+		else {
+			System.out.println("Enter id of student want to remove: ");
+			String id = input.readLine();
+			
+			System.out.println("Remove result:");
+			System.out.println(managementStudent.deleteStudent(id));
+			viewListStudent(managementStudent, input);
+			showMenu(input, managementStudent);
+		}
 	}
 
 	public static void main(String[] args) {

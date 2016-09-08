@@ -1,17 +1,16 @@
-/**
- * Author: Bui Thi Thuy Quynh
- * Date: 19/08/2016
- * Version: 1.0
- * 
- * Class manages the CDs
- */
-
 package exercise21;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * @author Bui Thi Thuy Quynh
+ * @date 07/09/2016
+ * @version 1.0
+ * 
+ * @description Class manages the information of list CDs
+ */
 public class ManagementCD {
 	
 	private ArrayList<CD> cds = new ArrayList<CD>();
@@ -33,9 +32,8 @@ public class ManagementCD {
 	}
 	
 	/**
-	 * Function: calculating summary price of CDs
-	 * Input: no
-	 * Output: summary price of CDs
+	 * @description calculating summary price of CDs
+	 * @return summary price of CDs
 	 */
 	public double calSummaryPriceOfCDs() {
 		double result = 0;
@@ -47,9 +45,8 @@ public class ManagementCD {
 	}
 	
 	/**
-	 * Function: print the information of CDs and totals of them
-	 * Input: no
-	 * Output: string about information of CDs and totals of them
+	 * @description get list CDs and total amount of them
+	 * @return string about list CDs and total amount of them
 	 */
 	@Override
 	public String toString() {

@@ -1,5 +1,12 @@
 package exercise22;
 
+/**
+ * @author Bui Thi Thuy Quynh
+ * @date 07/09/2016
+ * @version 1.0
+ * 
+ * @description Class manages the information of an word
+ */
 public class Word {
 
 	private String word;
@@ -30,6 +37,10 @@ public class Word {
 		this.meaning = meaning;
 	}
 	
+	/**
+	 * @description get the information of an word
+	 * @return string about information of an word
+	 */
 	@Override
 	public String toString() {
 		String result = getWord() + "\t" + getMeaning() + "\n";
