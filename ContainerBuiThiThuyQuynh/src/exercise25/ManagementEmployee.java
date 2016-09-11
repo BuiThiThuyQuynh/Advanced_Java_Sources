@@ -1,7 +1,6 @@
 package exercise25;
 
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
@@ -40,11 +39,7 @@ public class ManagementEmployee {
 		List<Map.Entry<String, Employee>> list = new LinkedList<Map.Entry<String, Employee>>(map.entrySet());
 		
 		// Sort list by value of Map
-		Collections.sort(list, new Comparator<Map.Entry<String, Employee>>() {
-			public int compare(Map.Entry<String, Employee> o1, Map.Entry<String, Employee> o2) {
-				return (o1.getValue()).compareTo(o2.getValue());
-			}
-		});
+		Collections.sort(list, (o1, o2) -> o2.getValue().compareTo(o1.getValue()));
 
 		// Copy the sorted list in HashMap
 		Map<String, Employee> sortedHashMap = new LinkedHashMap<String, Employee>();
