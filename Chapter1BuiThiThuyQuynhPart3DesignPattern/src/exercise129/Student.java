@@ -1,21 +1,25 @@
-/**
- * @author Bui Thi Thuy Quynh
- * @created 01/09/2016
- * @version 1.0
- */
-
 package exercise129;
 
 /**
- * @description class client of singleton
+ * The Student class implements an application that
+ * simply gets shared documents of teacher and prints the output on the screen.
+ *
+ * @author  Bui Thi Thuy Quynh
+ * @version 1.0
+ * @since   2016-09-01
  */
 public class Student {
 
+	/**
+	 * This is the main method which makes use of shareDocument() method of Teacher class.
+	 * @param args Unused.
+	 * @return Nothing.
+	 */
 	public static void main(String[] args) {
 		
 		Teacher teacher = Teacher.getInstance();
 		
-		// show the share document
+		// Display the shared document
 		System.out.println(teacher.shareDocument());
 
 	}

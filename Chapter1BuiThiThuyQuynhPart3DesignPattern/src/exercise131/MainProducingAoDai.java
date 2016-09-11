@@ -1,9 +1,3 @@
-/**
- * @author Bui Thi Thuy Quynh
- * @created 01/09/2016
- * @version 1.0
- */
-
 package exercise131;
 
 import java.io.BufferedReader;
@@ -11,23 +5,38 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * @description class 
+ * <h1>Sew a ao dai</h1>
+ * The MainProducingAoDai program implements an application that
+ * sews ao dai and prints the output on the screen.
+ *
+ * @author  Bui Thi Thuy Quynh
+ * @version 1.0
+ * @since   2016-09-05
  */
-public class Application {
+public class MainProducingAoDai {
 
+	/**
+	 * This is the main method which makes use of getAoDai() method and sew() method.
+	 * @param args Unused.
+	 * @return Nothing.
+	 * @exception IOException On input error.
+	 * @exception NumberFormatException On number format error.
+	 * @see IOException.
+	 * @see NumberFormatException.
+	 */
 	public static void main(String[] args) {
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 		
 		TailorShop factory;
 		AoDai product;
 		try {
+			// Show menu for user select ao dai which want to sew and check validate choice
 			System.out.println("CHOOSE TYPE OF AO DAI: ");
 			System.out.println("1. Traditional");
 			System.out.println("2. Modern");
 			System.out.println("3. Cheongsam");
 			
-			int choose = Integer.parseInt(input.readLine());
-			
+			int choose = Integer.parseInt(input.readLine());	
 			while (choose != 1 && choose != 2 && choose != 3) {
 				System.out.println("Only choose 1 or 2 or 3");
 				System.out.println("CHOOSE TYPE OF AO DAI: ");
@@ -38,6 +47,7 @@ public class Application {
 				choose = Integer.parseInt(input.readLine());
 			}
 			
+			// Sew shape that user selected
 			switch (choose) {
 			case 1:
 				factory = new TraditionalAoDaiTailorShop();
