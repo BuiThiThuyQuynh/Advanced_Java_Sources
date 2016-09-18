@@ -11,6 +11,14 @@ import exercise84.CategoryController;
 import exercise84.Product;
 import exercise84.ProductController;
 
+/**
+ * @author ThuyQuynh
+ * @since 2016-09-17
+ * @version 1.0
+ * 
+ * This is class manages product included add, search, update,
+ * 	delete and view all products. .
+ */
 public class MainManagementProduct {
 
 	static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
@@ -84,7 +92,7 @@ public class MainManagementProduct {
 	}
 
 	/**
-	 * This method is used to show contacts.
+	 * This method is used to show list products.
 	 * @param No.
 	 * @return Nothing.
 	 * @throws SQLException 
@@ -96,9 +104,9 @@ public class MainManagementProduct {
 	 * @throws SAXException 
 	 */
 	public static void viewProducts() throws ClassNotFoundException, SQLException, NumberFormatException, IOException {
-		// Check list contact not null --> show list contact
-		// Else application ask user want to add new contact or not. 
-		// 		If user choose yes, application will allow user add new contact to list
+		// Check list products not null --> show list products.
+		// Else application ask user want to add new product or not. 
+		// 		If user choose yes, application will allow user add new product to list
 		
 		if (productController.getListProduct().size() != 0) {
 			System.out.println("======= List product ============");
@@ -136,13 +144,20 @@ public class MainManagementProduct {
 			showMenu();
 	}
 	
+	/**
+	 * This method is used to show list category in database.
+	 * @param categories This is list category want to show.
+	 * @return Nothing.
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public static void showCategory(List<Category> categories) throws ClassNotFoundException, SQLException {
 		System.out.println("ID\tName\tDescription");
 		categories.stream().forEach(System.out::print);
 	}
 	
 	/**
-	 * This method is used to add new contact.
+	 * This method is used to add new product.
 	 * @param No.
 	 * @return Nothing.
 	 * @throws SQLException 
@@ -154,7 +169,7 @@ public class MainManagementProduct {
 	 * @throws NumberFormatException 
 	 */
 	public static void addProduct() throws ClassNotFoundException, SQLException, NumberFormatException, IOException {
-		// Enter the information for new contact, check validate and allow user continue entering if user want
+		// Enter the information for new product, check validate and allow user continue entering if user want
 			
 			List<Category>categories = categoryController.getCategory();
 			System.out.println("===== CHOOSE CATEGORY ===========");
@@ -205,7 +220,7 @@ public class MainManagementProduct {
 	}
 
 	/**
-	 * This method is used to search contact by name (relation search).
+	 * This method is used to search product by name (relation search).
 	 * @param No.
 	 * @return Nothing.
 	 * @throws SQLException 
@@ -217,7 +232,7 @@ public class MainManagementProduct {
 	 * @throws NumberFormatException 
 	 */
 	public static void searchProduct() throws ClassNotFoundException, SQLException, IOException {
-		// Check contacts is null --> allow user add new contact to contacts.
+		// Check products is null --> allow user add new product to products.
 		// Else application require user enter key word for searching and show result. 
 		System.out.println("========= Search product =================");
 		System.out.println("Enter name:");
@@ -237,7 +252,7 @@ public class MainManagementProduct {
 	}
 
 	/**
-	 * This method is used to delete contact by name or phone number.
+	 * This method is used to delete product by id.
 	 * @param No.
 	 * @return Nothing.
 	 * @throws IOException 
@@ -249,7 +264,7 @@ public class MainManagementProduct {
 	 * @throws NumberFormatException 
 	 */
 	public static void removeProduct() throws NumberFormatException, ClassNotFoundException, SQLException, IOException {
-		// Check contact is null --> allow user add new contact to contacts
+		// Check product is null --> allow user add new product to products
 		// Else application require user enter key word for deleting and show result. 
 
 		if (productController.getListProduct().size() == 0)
@@ -267,7 +282,7 @@ public class MainManagementProduct {
 	}
 	
 	/**
-	 * This method is used to update contact by name.
+	 * This method is used to update price and amount of product.
 	 * @param No.
 	 * @return Nothing.
 	 * @throws SQLException 
@@ -279,7 +294,7 @@ public class MainManagementProduct {
 	 * @throws NumberFormatException 
 	 */
 	public static void updateProduct() throws ClassNotFoundException, SQLException, NumberFormatException, IOException {
-		// Check contacts is null --> allow user add new contact to contacts
+		// Check products is null --> allow user add new product to products
 		// Else application require user enter key word for deleting and show result. 
 
 		if (productController.getListProduct().size() == 0)
@@ -325,8 +340,8 @@ public class MainManagementProduct {
 	}
 
 	/**
-	 * This is the main method which is used to manage contacts
-	 * 	included add, update, delete and search contact.
+	 * This is the main method which is used to manage products
+	 * 	included add, update, delete and search product.
 	 * @param args Unused.
 	 * @return Nothing.
 	 * @exception IOException On input error.

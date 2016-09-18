@@ -4,6 +4,13 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * @author ThuyQuynh
+ * @since 2016-09-17
+ * @version 1.0
+ * 
+ * This is class connect to database in MySQL.
+ */
 public class ConnectionDB {
 
 //	private static final String JDBC_URL = 

@@ -9,6 +9,13 @@ import java.util.List;
 
 import exercise82.ConnectionDB;
 
+/**
+ * @author ThuyQuynh
+ * @since 2016-09-16
+ * @version 1.0
+ * 
+ * This is class control connection connect to category table in database.
+ */
 public class CategoryController {
 
 	ConnectionDB connDB = new ConnectionDB();
@@ -18,6 +25,14 @@ public class CategoryController {
 		
 	}
 
+	/**
+	 * This method is used to get list category in table
+	 * 	and set them to list.
+	 * @param No.
+	 * @return List<Category> This is list category in table.
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public List<Category> getCategory() throws ClassNotFoundException, SQLException {
 		cate = new ArrayList<Category>();
 		

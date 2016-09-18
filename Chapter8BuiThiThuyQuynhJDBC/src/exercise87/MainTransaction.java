@@ -5,6 +5,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.SQLException;
 
+/**
+ * @author ThuyQuynh
+ * @since 2016-09-17
+ * @version 1.0
+ * 
+ * This is class does three 3 transaction (successfully and failed).
+ */
 public class MainTransaction {
 	
 	public static void main(String[] args) {
@@ -15,6 +22,7 @@ public class MainTransaction {
 		try {
 			boolean again = true;
 			while (again) {
+				// Show menu for user choose
 				System.out.println("==== CHOOSE TRANSACTIOn =======");
 				System.out.println("1. Transaction 1");
 				System.out.println("2. Transaction 2");
@@ -32,6 +40,7 @@ public class MainTransaction {
 					choose = Integer.parseInt(input.readLine());
 				}
 				
+				// Display user's choice
 				switch (choose) {
 				case 1:
 					productController.transaction1();

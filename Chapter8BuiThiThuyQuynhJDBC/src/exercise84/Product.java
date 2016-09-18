@@ -1,5 +1,13 @@
 package exercise84;
 
+/**
+ * @author ThuyQuynh
+ * @since 2016-09-16
+ * @version 1.0
+ * 
+ * This is class manages the information of a product
+ * 	as product table in database.
+ */
 public class Product {
 
 	private int id;
@@ -90,6 +98,12 @@ public class Product {
 		this.categoryid = categoryid;
 	}
 	
+	/**
+	 * This method is used to get the information of a product
+	 * 	if category name was not showed.
+	 * @param No.
+	 * @return string about information of a product.
+	 */
 	@Override
 	public String toString() {
 		String result = id + "\t" + name + "\t" + price + "\t" +
@@ -97,6 +111,12 @@ public class Product {
 		return result;
 	}
 	
+	/**
+	 * This method is used to get the information of a product
+	 * 	if category name was showed.
+	 * @param No.
+	 * @return string about information of a product.
+	 */
 	public String printProduct() {
 		String result = id + "\t" + name + "\t" + price + "\t" +
 				amount + "\t" + categoryName + "\n";

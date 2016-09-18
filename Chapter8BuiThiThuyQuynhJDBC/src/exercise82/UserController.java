@@ -6,11 +6,25 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * @author ThuyQuynh
+ * @since 2016-09-16
+ * @version 1.0
+ * 
+ * This is class control connection connect to user table in database.
+ */
 public class UserController {
 
 	ConnectionDB connDB = new ConnectionDB();
 	
-	
+	/**
+	 * This method is used to check login of a user
+	 * @param username This is username of user
+	 * @param password This is password of user.
+	 * @return boolean User is validate or not.
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public boolean checkLogin(String username, String password) throws ClassNotFoundException, SQLException {
 		try (Connection conn = connDB.connect()) {
 			Statement statement  = conn.createStatement();
@@ -30,6 +44,13 @@ public class UserController {
 		}
 	}
 	
+	/**
+	 * This methods is used to check username exist or not.
+	 * @param username This is username checked.
+	 * @return boolean This is result of username exist or not.
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public boolean checkUsername(String username) throws ClassNotFoundException, SQLException {
 		try (Connection conn = connDB.connect()) {
 			Statement statement  = conn.createStatement();
@@ -48,6 +69,13 @@ public class UserController {
 		}
 	}
 	
+	/**
+	 * This method is used to add a user to user table.
+	 * @param username This is username of new user.
+	 * @param password This is password of new user.
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
 	public void addAccount(String username, String password) throws SQLException, ClassNotFoundException {
 		try (Connection conn = connDB.connect()) {
 			

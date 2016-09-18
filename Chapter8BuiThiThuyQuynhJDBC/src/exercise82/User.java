@@ -1,5 +1,13 @@
 package exercise82;
 
+/**
+ * @author ThuyQuynh
+ * @since 2016-09-16
+ * @version 1.0
+ * 
+ * This is class manages the information of a user
+ * 	as user table in database.
+ */
 public class User {
 
 	private int id;

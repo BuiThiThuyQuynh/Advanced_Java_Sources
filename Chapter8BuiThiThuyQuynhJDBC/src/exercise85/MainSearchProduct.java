@@ -9,6 +9,13 @@ import java.util.List;
 import exercise84.Product;
 import exercise84.ProductController;
 
+/**
+ * @author ThuyQuynh
+ * @since 2016-09-17
+ * @version 1.0
+ * 
+ * This is class search product by name.
+ */
 public class MainSearchProduct {
 
 	public static void main(String[] args) {
@@ -17,10 +24,12 @@ public class MainSearchProduct {
 		ProductController productController = new ProductController();
 		
 		try {
+			// Enter key word for searching.
 			System.out.println("========= Search product =================");
 			System.out.println("Enter name:");
 			String keyword = input.readLine();
 			
+			// Get search result and show on the screen.
 			List<Product> searchResults = productController.searchProduct(keyword);
 			if (searchResults.size() == 0)
 				System.out.println(keyword + " was not found");

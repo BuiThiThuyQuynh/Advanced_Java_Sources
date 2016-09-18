@@ -7,6 +7,13 @@ import java.sql.SQLException;
 
 import exercise82.UserController;
 
+/**
+ * @author ThuyQuynh
+ * @since 2016-09-16
+ * @version 1.0
+ * 
+ * This is class add new user .
+ */
 public class MainAddUser {
 
 	public static void main(String[] args) {
@@ -14,6 +21,7 @@ public class MainAddUser {
 				BufferedReader(new InputStreamReader(System.in));
 		UserController userController = new UserController();
 		try {
+			// User enter the information of new user.
 			System.out.println("====== ADD USER ===========");
 			System.out.println("Enter username: ");
 			String username = input.readLine();
@@ -52,7 +60,7 @@ public class MainAddUser {
 				confirmPass = input.readLine();
 			}
 			
-			
+			// Insert new user to table and inform result.
 			userController.addAccount(username, password);
 			System.out.println("New account is created. Now you can use it to login");
 			

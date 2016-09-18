@@ -1,5 +1,13 @@
 package exercise87;
 
+/**
+ * @author ThuyQuynh
+ * @since 2016-09-17
+ * @version 1.0
+ * 
+ * This is class manages the information of a product
+ * 	as product table in database.
+ */
 public class Product {
 
 	private int id;

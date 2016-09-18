@@ -10,11 +10,25 @@ import java.util.List;
 
 import exercise82.ConnectionDB;
 
+/**
+ * @author ThuyQuynh
+ * @since 2016-09-16
+ * @version 1.0
+ * 
+ * This is class control connection connect to product table in database.
+ */
 public class ProductController {
 
 	ConnectionDB connDB = new ConnectionDB();
 	List<Product> products;
 	
+	/**
+	 * This method is used to add new product to table.
+	 * @param product Product was added.
+	 * @return Nothing.
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public void addProduct(Product product) throws ClassNotFoundException, SQLException {
 		try (Connection conn = connDB.connect()) {
 			String sql = "insert into product(name, price, amount, categoryid) "
@@ -28,6 +42,12 @@ public class ProductController {
 		}
 	}
 	
+	/**
+	 * This method is used to update a product
+	 * @param product product was updated.
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public void updateProduct(Product product) throws ClassNotFoundException, SQLException {
 		try (Connection conn = connDB.connect()) {
 			String sql = "update product set price = " + product.getPrice() 
@@ -41,6 +61,12 @@ public class ProductController {
 		}
 	}
 	
+	/**
+	 * This method is used to remove a product from table.
+	 * @param id This is id of product was removed.
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public void deleteProduct(int id) throws ClassNotFoundException, SQLException {
 		try (Connection conn = connDB.connect()) {
 			String sql = "delete from product where id = " + id + ";";
@@ -52,6 +78,13 @@ public class ProductController {
 		}
 	}
 	
+	/**
+	 * This method is used to check product name existing or not.
+	 * @param name This is name checked.
+	 * @return boolean This is result name existing or not.
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public boolean checkProductName(String name) throws ClassNotFoundException, SQLException {
 		try (Connection conn = connDB.connect()) {
 			Statement statement  = conn.createStatement();
@@ -70,6 +103,13 @@ public class ProductController {
 		}
 	}
 	
+	/**
+	 * This method is used to get list product by category id
+	 * @param categoryid This is category id was gotten list product.
+	 * @return List<Product> List product of a category.
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public List<Product> getListProduct(int categoryid) throws ClassNotFoundException, SQLException {
 		products = new ArrayList<Product>();
 		try (Connection conn = connDB.connect()) {
@@ -93,6 +133,13 @@ public class ProductController {
 		return products;
 	}
 	
+	/**
+	 * This method is used to search a product in table by name.
+	 * @param keyword This is search key.
+	 * @return List<Product> This is search result.
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public List<Product> searchProduct(String keyword) throws ClassNotFoundException, SQLException {
 		List<Product> results = new ArrayList<Product>();
 		try (Connection conn = connDB.connect()) {
@@ -118,7 +165,13 @@ public class ProductController {
 		return results;
 	}
 	
-	
+	/**
+	 * This method is used to get all product in table.
+	 * @param No.
+	 * @return List<Product> This is list product in table.
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public List<Product> getListProduct() throws ClassNotFoundException, SQLException {
 		List<Product> results = new ArrayList<Product>();
 		try (Connection conn = connDB.connect()) {
