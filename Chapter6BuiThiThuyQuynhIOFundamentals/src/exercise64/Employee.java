@@ -75,9 +75,12 @@ enum PersonalTaxesRates {
 	}
 }
 
-@SuppressWarnings("serial")
 public class Employee implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private final double BASICSALARY = 1260000;
 	private final double TAXABLEBASICSALARY = 9000000;
 	private final double ALLOWANCEFAMILY = 3600000;

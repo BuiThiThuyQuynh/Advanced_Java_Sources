@@ -8,66 +8,15 @@
 
 package exercise64;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
-import java.io.EOFException;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainManagementSalary {
 	
-	public static List<Employee> readFile(String filePath) throws ClassNotFoundException {
-		List<Employee> result = new ArrayList<Employee>();
-		
-		try (ObjectInputStream in = new ObjectInputStream(new 
-				BufferedInputStream(new FileInputStream(filePath)))) {
-			while (true) {
-				Employee employee = (Employee) in.readObject();
-				result.add(employee);
-			}
-			
-			//.close();
-		}
-		catch (IOException ex) {
-			//System.out.println("Exception: " + ex.getMessage());
-			ex.printStackTrace();
-		}
-		
-		return result;
-		
-	}
-	
-	public static void writeFile(String filePath, Employee employee) throws IOException {
-		
-		ObjectOutputStream out;
-		
-		try {
-			out = new ObjectOutputStream(new FileOutputStream(filePath, true)) {
-				@Override
-				protected void writeStreamHeader() throws IOException {
-					reset();
-				}
-			};
-			
-			out.writeObject(employee);
-			out.flush();
-			System.out.println("Employee was recorded");
-
-			out.close();
-		}
-		catch (Exception ex) {
-			System.out.println("Exception: " + ex);
-			ex.printStackTrace();
-		}
-	}
+	static String filePath = "src/exercise64/employee.txt";
+	static EmployeeManagement employeeMana;
 	
 	public static void addEmployee(BufferedReader input, String filePath) throws IOException {
 		System.out.println("Enter full name of employee: ");
@@ -103,7 +52,8 @@ public class MainManagementSalary {
 		Employee employee = new Employee(name, coefficientsSalary, 
 				numberOfFamily, allowance);
 		
-		writeFile(filePath, employee);
+		employeeMana.addEmployee(employee);
+		employeeMana.writeFile(filePath);
 	}
 	
 	public static void searchEmployee(BufferedReader input,
@@ -122,11 +72,12 @@ public class MainManagementSalary {
 		BufferedReader input = new BufferedReader(
 				new InputStreamReader(System.in));
 		
-		String filePath = "src/exercise64/employee.txt";
+		String filePath = "src/exercise64/liststudent.txt";
 		List<Employee> listEmployeeFile;
-		EmployeeManagement employees;
+		
 		try {
 			boolean flag = true;
+			employeeMana = new EmployeeManagement(filePath);
 			while (flag) {
 				System.out.println("1. Add new employee");
 				System.out.println("2. View list employee");
@@ -150,10 +101,10 @@ public class MainManagementSalary {
 					addEmployee(input, filePath);
 					break;
 				case "2":
-					if (readFile(filePath).size() != 0) {
-						listEmployeeFile = readFile(filePath);
-						employees = new EmployeeManagement(listEmployeeFile);
-						System.out.println(employees.toString());
+					if (employeeMana.getEmployees().size() != 0) {
+						listEmployeeFile = employeeMana.readFile(filePath);
+						employeeMana = new EmployeeManagement(listEmployeeFile);
+						System.out.println(employeeMana.toString());
 					}
 					else {
 						System.out.println("Do you want to add employee?");
@@ -181,10 +132,10 @@ public class MainManagementSalary {
 					}
 					break;
 				case "3":
-					if (readFile(filePath).size() != 0) {
-						listEmployeeFile = readFile(filePath);
-						employees = new EmployeeManagement(listEmployeeFile);
-						searchEmployee(input, employees);
+					if (employeeMana.readFile(filePath).size() != 0) {
+						listEmployeeFile = employeeMana.readFile(filePath);
+						employeeMana = new EmployeeManagement(listEmployeeFile);
+						searchEmployee(input, employeeMana);
 					}
 					else {
 						System.out.println("Do you want to add employee?");

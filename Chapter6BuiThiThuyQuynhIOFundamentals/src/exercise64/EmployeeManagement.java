@@ -1,5 +1,11 @@
 package exercise64;
 
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -8,8 +14,8 @@ public class EmployeeManagement {
 
 	List<Employee> employees = new ArrayList<>();
 	
-	public EmployeeManagement() {
-		
+	public EmployeeManagement(String filePath) throws ClassNotFoundException, IOException {
+		readFile(filePath);
 	}
 
 	public EmployeeManagement(List<Employee> employees) {
@@ -34,6 +40,48 @@ public class EmployeeManagement {
 				.collect(Collectors.toList());
 		
 		return result;
+		
+	}
+	
+	public List<Employee> readFile(String filePath) throws ClassNotFoundException, IOException {
+		employees = new ArrayList<Employee>();
+		
+		ObjectInputStream in = null;
+		try {
+			in = new ObjectInputStream(new 
+					BufferedInputStream(new FileInputStream(filePath)));
+					
+			while (true) {
+				Employee employee = (Employee) in.readObject();
+				employees.add(employee);
+			}
+			
+			
+		}
+		catch (IOException ex) {
+			//System.out.println("Exception: " + ex.getMessage());
+			ex.printStackTrace();
+		}
+		finally {
+			in.close();
+		}
+		
+		return employees;
+	
+	}
+	
+	public void writeFile(String filePath) {
+		ObjectOutputStream out;
+		try {
+			out = new ObjectOutputStream(new FileOutputStream(filePath));
+			for (Employee employee : employees)
+				out.writeObject(employee);
+			out.close();
+		}
+		catch (IOException ex) {
+			//System.out.println("Exception: " + ex);
+			ex.printStackTrace();
+		}
 		
 	}
 	
