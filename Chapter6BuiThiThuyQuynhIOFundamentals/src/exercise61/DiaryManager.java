@@ -12,20 +12,33 @@ import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * This is class manages dairy
+ * 
+ * @author ThuyQuynh
+ * @version 1.0
+ * @since 2016-09-14
+ */
 public class DiaryManager {
 
+	/**
+	 * This method is used to read content of dairy from text file
+	 * @param filePath This is path of test file.
+	 * @return Nothing.
+	 */
 	public static void readFile(String filePath) {
 		Diary diary = new Diary();
-		
 		try (DataInputStream in = new DataInputStream(new 
 				BufferedInputStream(new FileInputStream(filePath)))) {
 			while (in.available() > 0) {
 				diary.setDate(in.readUTF());
 				diary.setContent(in.readUTF());
-				//diarys.add(diary);
+				
+				// Print dairy included date and content
 				System.out.println(diary.toString());
 			}
 			
+			// Close connection
 			in.close();
 		}
 		catch (IOException ex) {
@@ -33,6 +46,12 @@ public class DiaryManager {
 		}
 	}
 	
+	/**
+	 * This method is used to write content of dairy to text file
+	 * @param filePath This is path of test file.
+	 * @param diary This is dairy which was written.
+	 * @return Nothing.
+	 */
 	public static void writeFile(String filePath, Diary diary) {
 		try (DataOutputStream out = new DataOutputStream(new 
 				BufferedOutputStream(new FileOutputStream(filePath, true)))){
@@ -52,8 +71,10 @@ public class DiaryManager {
 				InputStreamReader(System.in));
 		String filePath = "src/exercise61/daily.txt";
 		try {
+			// User choose option and choose again if they want.
 			boolean flag = true;
 			while (flag) {
+				// Choose and check validate option
 				System.out.println("1. View diary");
 				System.out.println("2. Write a new diary");
 				System.out.println("3. Exit");
@@ -69,6 +90,7 @@ public class DiaryManager {
 					choose = input.readLine();
 				}
 				
+				// Display option
 				switch (choose) {
 				case "1":
 					readFile(filePath);

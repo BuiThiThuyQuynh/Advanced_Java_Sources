@@ -2,6 +2,13 @@ package exercise63;
 
 import java.text.DecimalFormat;
 
+/**
+ * @author Bui Thi Thuy Quynh
+ * @since 2016-09-14
+ * @version 1.0
+ * 
+ * This is class manages the information of an student.
+ */
 public class Student {
 
 	private String name;
@@ -52,12 +59,22 @@ public class Student {
 		this.mark2 = mark2;
 	}
 	
+	/**
+	 * This method is used to calculate average mark of student.
+	 * @param No.
+	 * @return double This is average mark of student.
+	 */
 	public double calAverage() {
 		DecimalFormat df = new DecimalFormat("#.00");
 		String temp = df.format((mark1 + mark2 * 2) / 3);
 		return Double.parseDouble(temp);
 	}
 	
+	/**
+	 * This method is used to get the information of an student
+	 * @param No.
+	 * @return string about information of an student
+	 */
 	@Override
 	public String toString() {
 		String result = name + "\t" + grade + "\t"

@@ -7,8 +7,20 @@ import java.io.InputStreamReader;
 
 import exercise62.Word;
 
+/**
+ * @author Bui Thi Thuy Quynh
+ * @since 2016-09-14
+ * @version 1.0
+ * 
+ * This is class count word's frequency in paragraph and search a word in paragraph.
+ */
 public class MainManagementParagraph {
 	
+	/**
+	 * This method is used to read content of paragraph from text file.
+	 * @param filePath This is path of text file read.
+	 * @return String This is content of text file.
+	 */
 	public static String readFile(String filePath) {
 		String result = "";
 		try (BufferedReader in = new BufferedReader(new 
@@ -26,6 +38,13 @@ public class MainManagementParagraph {
 		return result;
 	}
 	
+	/**
+	 * This method is used to count word's frequency in paragraph 
+	 * 	and print word + frequency on the screen.
+	 * @param input This is paragraph was read from text file.
+	 * @param managementWord This is class handling words was split from paragraph.
+	 * @return Nothing.
+	 */
 	public static void splitParagraph(String input, ManagementWord managementWord) {
 		String[] split = input.split(" [\n\t]?");
 		Word word;
@@ -45,9 +64,9 @@ public class MainManagementParagraph {
 	}
 	
 	/**
-	 * @description show information for searching word in paragraph
-	 * @param paragraph
-	 * @param input
+	 * This method is used to show information for searching word in paragraph
+	 * @param managementWord This is class handling words was split from paragraph.
+	 * @return Nothing.
 	 * @throws IOException
 	 */
 	public static void searchWord(ManagementWord managementWord, BufferedReader input) throws IOException {
@@ -102,11 +121,10 @@ public class MainManagementParagraph {
 		ManagementWord listWord = new ManagementWord();
 		String filePath = "src/exercise62/document.txt";
 		try {
-			// Enter paragraph
-			//System.out.println("Enter paragraph: ");
+			// Read paragraph from text file
 			String contentFile = readFile(filePath);
 			
-			// print word and frequency of word in paragraph
+			// Handling paragraph and print word + frequency of word in paragraph on the screen.
 			splitParagraph(contentFile, listWord);
 			
 			// Search a word

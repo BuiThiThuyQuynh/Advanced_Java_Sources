@@ -9,10 +9,10 @@ import exercise62.Word;
 
 /**
  * @author Bui Thi Thuy Quynh
- * @date 08/09/2016
+ * @since 2016-09-14
  * @version 1.0
  * 
- * @description Class manages the information of an student
+ * This is class manages the information of list word from a paragraph.
  */
 public class ManagementWord {
 
@@ -35,18 +35,19 @@ public class ManagementWord {
 	}
 
 	/**
-	  * @description function for addition a employee to list employee
-	  * @param0 id of student
-	  * @param1 student want to add
+	  * This method is used to add a word to list from paragraph
+	  * @param word Word is added.
+	  * @return Nothing.
 	  */
 	public void addWord(Word word) {
 		listWord.add(word);
 	}
 	
 	/**
-	 * @description function for searching a word to dictionary
-	 * @param word want to search
-	 * @return information of word was found
+	 * This method is used to search a word to paragraph
+	 * @param word Word want to search
+	 * @return Word This is information of word was found. 
+	 * 		If word was not found, method will return null.
 	 */
 	public Word getWord(String word) {
 		for (Word item : listWord) {
@@ -58,9 +59,9 @@ public class ManagementWord {
 	}
 	
 	/**
-	  * @description function for addition a employee to list employee
-	  * @param0 id of student
-	  * @param1 student want to add
+	  * This method is used to update word's frequency.
+	  * @param word Word was updated.
+	  * @return Nothing.
 	  */
 	public void updateWord(String word) {
 		Word w = getWord(word);
@@ -69,8 +70,9 @@ public class ManagementWord {
 	}
 	
 	/**
-	 * @description get list word in diction
-	 * @return list word in diction
+	 * This method is used to get list word in paragraph.
+	 * @param No.
+	 * @return list word in paragraph.
 	 */
 	@Override
 	public String toString() {

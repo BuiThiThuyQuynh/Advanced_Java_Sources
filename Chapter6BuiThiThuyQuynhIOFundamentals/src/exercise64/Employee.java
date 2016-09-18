@@ -75,11 +75,15 @@ enum PersonalTaxesRates {
 	}
 }
 
+/**
+ * @author ThuyQuynh
+ * @since 2016-09-14
+ * @version 1.0
+ * 
+ * This is class manages the information of a employee.
+ */
 public class Employee implements Serializable {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private final double BASICSALARY = 1260000;
 	private final double TAXABLEBASICSALARY = 9000000;
@@ -133,9 +137,9 @@ public class Employee implements Serializable {
 	}
 	
 	/**
-	 * Function: calculating salary of employee
-	 * Input: No
-	 * Output: salary of employee
+	 * This method is used to calculate salary of employee
+	 * @param No.
+	 * @return double This is salary of employee
 	 */
 	public double calSalary() {
 		double result = coefficientsSalary * BASICSALARY + allowance;
@@ -143,9 +147,9 @@ public class Employee implements Serializable {
 	}
 	
 	/**
-	 * Function: calculating taxable salary of employee
-	 * Input: No
-	 * Output: taxable salary of employee
+	 * This method is used to calculate taxable salary of employee
+	 * @param No.
+	 * @return double This is taxable salary of employee
 	 */
 	public double calTaxableSalary() {
 		double result = calSalary() - TAXABLEBASICSALARY - numberOfFamily * ALLOWANCEFAMILY;
@@ -153,9 +157,9 @@ public class Employee implements Serializable {
 	}
 	
 	/**
-	 * Function: calculating personal taxes of employee
-	 * Input: No
-	 * Output: personal taxes of employee
+	 * This method is used to calculate personal taxes of employee
+	 * @param No.
+	 * @return double This is personal taxes of employee
 	 */
 	public double calPersonalTaxes() {
 		double result = 0;
@@ -206,15 +210,20 @@ public class Employee implements Serializable {
 	}
 	
 	/**
-	 * Function: calculating real salary of employee
-	 * Input: No
-	 * Output: real salary of employee
+	 * This method is used to calculate real salary of employee
+	 * @param No.
+	 * @return double This is real salary of employee
 	 */
 	public double calRealSalary() {
 		double result = calSalary() - calPersonalTaxes();
 		return result;
 	}
 	
+	/**
+	 * This method is used to get the information of an employee
+	 * @param No.
+	 * @return string about information of an employee
+	 */
 	@Override
 	public String toString() {
 		DecimalFormat df = new DecimalFormat("#,###.00");

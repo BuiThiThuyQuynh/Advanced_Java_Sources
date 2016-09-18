@@ -1,5 +1,12 @@
 package exercise61;
 
+/**
+ * This is class create a dairy
+ * 
+ * @author ThuyQuynh
+ * @version 1.0
+ * @since 2016-09-14
+ */
 public class Diary {
 
 	private String date;
@@ -30,6 +37,11 @@ public class Diary {
 		this.content = content;
 	}
 
+	/**
+	 * This method is used to get the information of an dairy
+	 * @param No.
+	 * @return string about information of an dairy included create date and content.
+	 */
 	@Override
 	public String toString() {
 		String result = "Date: " + date + "\n";

@@ -2,10 +2,10 @@ package exercise62;
 
 /**
  * @author Bui Thi Thuy Quynh
- * @date 08/09/2016
+ * @since 2016-09-14
  * @version 1.0
  * 
- * @description Class manages the information of an word
+ * This is class manages the information of an word with word's frequency.
  */
 public class Word implements Comparable<Word> {
 
@@ -38,7 +38,8 @@ public class Word implements Comparable<Word> {
 	}
 	
 	/**
-	 * @description get the information of an word
+	 * This method is used to get the information of an word
+	 * @param No.
 	 * @return string about information of an word
 	 */
 	@Override
@@ -48,8 +49,9 @@ public class Word implements Comparable<Word> {
 	}
 	
 	/**
-	 * @description override compareTo method to compare two CD object
-	 * @return 
+	 * This method is used to override compareTo method to compare two CD object
+	 * @param o This is object which want to compare with this.
+	 * @return int This is result of comparison.
 	 */
 	@Override
 	public int compareTo(Word o) {

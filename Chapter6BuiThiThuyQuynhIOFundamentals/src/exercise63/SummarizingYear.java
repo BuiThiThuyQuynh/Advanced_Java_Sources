@@ -12,8 +12,20 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Bui Thi Thuy Quynh
+ * @since 2016-09-14
+ * @version 1.0
+ * 
+ * This is class manages the information of an student.
+ */
 public class SummarizingYear {
 	
+	/**
+	 * This method is used to read list student from text file.
+	 * @param filePath This is path of text file.
+	 * @return List<Student> This is list student in text file.
+	 */
 	public static List<Student> readFile(String filePath) {
 		List<Student> result = new ArrayList<Student>();
 		Student student;
@@ -21,12 +33,15 @@ public class SummarizingYear {
 		try (DataInputStream in = new DataInputStream(new 
 				BufferedInputStream(new FileInputStream(filePath)))) {
 			while (in.available() > 0) {
+				
+				// Get information of a student
 				student = new Student();
 				student.setName(in.readUTF());
 				student.setGrade(in.readUTF());
 				student.setMark1(in.readDouble());
 				student.setMark2(in.readDouble());
 
+				// Add student to list
 				result.add(student);
 			}
 			
@@ -39,6 +54,12 @@ public class SummarizingYear {
 		return result;
 	}
 	
+	/**
+	 * This method is used to write information of student to text file.
+	 * @param filePath This is path of text file.
+	 * @param student Student is added.
+	 * @return Nothing.
+	 */
 	public static void writeFile(String filePath, Student student) {
 		try (DataOutputStream out = new DataOutputStream(new 
 				BufferedOutputStream(new FileOutputStream(filePath, true)))){
@@ -55,7 +76,14 @@ public class SummarizingYear {
 		}
 	}
 	
+	/**
+	 * This method is used to add a student 
+	 * 		and write the information of this student to text file.
+	 * @param filePath This is path of text file.
+	 * @return Nothing.
+	 */
 	public static void addStudent(BufferedReader input, String filePath) throws IOException {
+		// Enter the information of student
 		System.out.println("Enter name");
 		String name = input.readLine();
 		
@@ -95,6 +123,7 @@ public class SummarizingYear {
 		}
 		
 		Student student = new Student(name, grade, mark1, mark2);
+		// Add to student to file.
 		writeFile(filePath, student);
 	}
 
@@ -108,6 +137,7 @@ public class SummarizingYear {
 		try {
 			boolean flag = true;
 			while (flag) {
+				// Show menu
 				System.out.println("1. Add new student");
 				System.out.println("2. View list student and result");
 				System.out.println("3. Exit");
@@ -123,6 +153,7 @@ public class SummarizingYear {
 					choose = input.readLine();
 				}
 				
+				// Handling user's choice
 				switch (choose) {
 				case "1":
 					addStudent(input, filePath);

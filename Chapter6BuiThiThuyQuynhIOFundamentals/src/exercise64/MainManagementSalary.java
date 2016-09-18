@@ -13,12 +13,28 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 
+
+/**
+ * @author Bui Thi Thuy Quynh
+ * @since 2016-09-14
+ * @version 1.0
+ * 
+ * This is class handles list employees which was read from text file.
+ */
 public class MainManagementSalary {
 	
 	static String filePath = "src/exercise64/employee.txt";
 	static EmployeeManagement employeeMana;
 	
-	public static void addEmployee(BufferedReader input, String filePath) throws IOException {
+	/**
+	 * This method is used to add new employee object to file.
+	 * @param input
+	 * @param filePath This is path of text file.
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 */
+	public static void addEmployee(BufferedReader input, String filePath) throws IOException, ClassNotFoundException {
+		// Enter the information of employee.
 		System.out.println("Enter full name of employee: ");
 		String name = input.readLine();
 		
@@ -52,10 +68,18 @@ public class MainManagementSalary {
 		Employee employee = new Employee(name, coefficientsSalary, 
 				numberOfFamily, allowance);
 		
+		// Add employee to list employee and write it to file.
 		employeeMana.addEmployee(employee);
 		employeeMana.writeFile(filePath);
+		System.out.println(employeeMana.toString());
 	}
 	
+	/**
+	 * This method is used to search a employee
+	 * @param input
+	 * @param employees This is class manages list employee.
+	 * @throws IOException
+	 */
 	public static void searchEmployee(BufferedReader input,
 			EmployeeManagement employees) throws IOException {
 		System.out.println("Enter key word (name of employee): ");
@@ -72,13 +96,11 @@ public class MainManagementSalary {
 		BufferedReader input = new BufferedReader(
 				new InputStreamReader(System.in));
 		
-		String filePath = "src/exercise64/liststudent.txt";
-		List<Employee> listEmployeeFile;
-		
 		try {
 			boolean flag = true;
 			employeeMana = new EmployeeManagement(filePath);
 			while (flag) {
+				// Show menu for user choose
 				System.out.println("1. Add new employee");
 				System.out.println("2. View list employee");
 				System.out.println("3. Search employee by name");
@@ -96,14 +118,13 @@ public class MainManagementSalary {
 					choose = input.readLine();
 				}
 				
+				// Display user's choice
 				switch (choose) {
 				case "1":
 					addEmployee(input, filePath);
 					break;
 				case "2":
 					if (employeeMana.getEmployees().size() != 0) {
-						listEmployeeFile = employeeMana.readFile(filePath);
-						employeeMana = new EmployeeManagement(listEmployeeFile);
 						System.out.println(employeeMana.toString());
 					}
 					else {
@@ -132,9 +153,7 @@ public class MainManagementSalary {
 					}
 					break;
 				case "3":
-					if (employeeMana.readFile(filePath).size() != 0) {
-						listEmployeeFile = employeeMana.readFile(filePath);
-						employeeMana = new EmployeeManagement(listEmployeeFile);
+					if (employeeMana.getEmployees().size() != 0) {
 						searchEmployee(input, employeeMana);
 					}
 					else {
@@ -164,6 +183,7 @@ public class MainManagementSalary {
 					break;
 				case "4":
 					flag = false;
+					employeeMana.writeFile(filePath);
 					System.out.println("Application ended");
 					break;
 				default:
@@ -172,8 +192,7 @@ public class MainManagementSalary {
 			}
 		}
 		catch (IOException | NumberFormatException | ClassNotFoundException ex) {
-			//System.out.println("Exception: " + ex);
-			ex.printStackTrace();
+			System.out.println("Exception: " + ex);
 		}
 	}
 }
