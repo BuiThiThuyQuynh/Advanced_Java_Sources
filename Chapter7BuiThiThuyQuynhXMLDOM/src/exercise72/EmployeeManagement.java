@@ -23,11 +23,21 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+
+/**
+ * @author Bui Thi Thuy Quynh
+ * @since 2016-09-18
+ * @version 1.0
+ * 
+ * This is class manages the information of list employees.
+ */
 public class EmployeeManagement {
 
 	List<Employee> employees;
 	
-	public EmployeeManagement(String filePath) throws FileNotFoundException, ParserConfigurationException, SAXException, IOException {
+	public EmployeeManagement(String filePath) 
+			throws FileNotFoundException, ParserConfigurationException, 
+			SAXException, IOException {
 		readFile(filePath);
 	}
 
@@ -39,6 +49,11 @@ public class EmployeeManagement {
 		employees.add(employee);
 	}
 	
+	/**
+	 * This method is used to get all employee in a department.
+	 * @param departmentId This id id of department which want to get list employee.
+	 * @return List<Employee> This is list employee of department.
+	 */
 	public List<Employee> geEmployeeByDepartment(int departmentId) {
 		List<Employee> result = new ArrayList<Employee>();
 		
@@ -50,6 +65,11 @@ public class EmployeeManagement {
 		return result;
 	}
 	
+	/**
+	 * This method is used to get the information all of employee in a department.
+	 * @param departmentId This id id of department which want to get list employee.
+	 * @return String This is list employee of department.
+	 */
 	public String printListEmployee(int departmentId) {
 		String result = "======== LIST EMPLOYEE IN DEPARTMENT " + departmentId
 				+ "=================\n";
@@ -62,6 +82,15 @@ public class EmployeeManagement {
 		return result;
 	}
 	
+	/**
+	 * This method is used to get document of file from file path
+	 * @param filePath This is path of XML file.
+	 * @return Document This is document of XML file.
+	 * @throws FileNotFoundException
+	 * @throws SAXException
+	 * @throws IOException
+	 * @throws ParserConfigurationException
+	 */
 	public Document getDocument(String filePath) 
 			throws FileNotFoundException, SAXException, 
 			IOException, ParserConfigurationException {
@@ -84,6 +113,11 @@ public class EmployeeManagement {
 		return doc;
 	}
 	
+	/**
+	 * This method is used to get a employee from a node in XML file.
+	 * @param node Node contain the information of employee.
+	 * @return Employee This is employee in node.
+	 */
 	private Employee getEmployee(Node node) {
 		Employee employee = new Employee();
 		if (node.getNodeType() == Node.ELEMENT_NODE) {
@@ -107,6 +141,15 @@ public class EmployeeManagement {
 		return employee;
 	}
 	
+	/**
+	 * This method is used to read list employees from XML file and set them to list.
+	 * @param filePath This is path of XML file.
+	 * @return Nothing.
+	 * @throws FileNotFoundException
+	 * @throws ParserConfigurationException
+	 * @throws SAXException
+	 * @throws IOException
+	 */
 	public void readFile(String filePath) 
 			throws FileNotFoundException, ParserConfigurationException, 
 			SAXException, IOException {
@@ -114,7 +157,6 @@ public class EmployeeManagement {
 		try {
 			Document doc = getDocument(filePath);
 			Element rootElement = doc.getDocumentElement();
-			//System.out.println("root:" + rootElement.getNodeName());
 			
 			NodeList nodeList = rootElement.getElementsByTagName("employee");
 			for (int i = 0; i < nodeList.getLength(); i++) {
@@ -127,6 +169,15 @@ public class EmployeeManagement {
 		}
 	}
 	
+	/**
+	 * This method is used to write list employes to XML file.
+	 * @param filePath This is path of XML file.
+	 * @throws FileNotFoundException
+	 * @throws SAXException
+	 * @throws IOException
+	 * @throws ParserConfigurationException
+	 * @throws TransformerException
+	 */
 	public void writeContact(String filePath) 
 			throws FileNotFoundException, SAXException, 
 			IOException, ParserConfigurationException,
@@ -139,47 +190,48 @@ public class EmployeeManagement {
 		
 		for (Employee item : employees) {
 			
-			// Create contact in root node
+			// Create contact in employee node
 			Element employee = doc.createElement("employee");
 			rootElement.appendChild(employee);
 			
-			// Create name node in contact node
+			// Create name node in id node
 			Element id = doc.createElement("id");
 			id.appendChild(doc.createTextNode(String.valueOf(item.getId())));
 			employee.appendChild(id);
 			
-			// Create name node in contact node
+			// Create name node in name node
 			Element name = doc.createElement("name");
 			name.appendChild(doc.createTextNode(item.getName()));
 			employee.appendChild(name);
 			
-			// Create name node in contact node
+			// Create name node in sex node
 			Element sex = doc.createElement("sex");
 			sex.appendChild(doc.createTextNode(String.valueOf(item.getSex())));
 			employee.appendChild(name);
 			
-			// Create name node in contact node
+			// Create name node in birthdate node
 			Element birthDate = doc.createElement("birhtdate");
 			birthDate.appendChild(doc.createTextNode(item.getBirthDate()));
 			employee.appendChild(birthDate);
 			
-			// Create name node in contact node
+			// Create name node in salary node
 			Element salary = doc.createElement("salary");
 			salary.appendChild(doc.createTextNode(String.valueOf(item.getSalary())));
 			employee.appendChild(salary);
 			
-			// Create name node in contact node
+			// Create name node in address node
 			Element address = doc.createElement("address");
 			address.appendChild(doc.createTextNode(item.getAddress()));
 			employee.appendChild(address);
 			
-			// Create name node in contact node
+			// Create name node in departmentid node
 			Element departmentId = doc.createElement("departmentid");
 			departmentId.appendChild(doc.createTextNode(String.valueOf(item.getDepartmentId())));
 			employee.appendChild(departmentId);
 			
 		}
 		
+		// Write document to XML file.
 		TransformerFactory transFactory = TransformerFactory.newInstance();
 		Transformer transformer = transFactory.newTransformer();
 		transformer.setOutputProperty(OutputKeys.INDENT, "yes");

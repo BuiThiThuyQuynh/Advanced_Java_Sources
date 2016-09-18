@@ -1,5 +1,12 @@
 package exercise71;
 
+/**
+ * This is class manages the information of a contact.
+ * 
+ * @author ThuyQuynh
+ * @version 1.0
+ * @since 2016-09-15
+ */
 public class Contact {
 
 	private String name;
@@ -28,7 +35,5 @@ public class Contact {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
-	}
-	
-	
+	}	
 }

@@ -19,7 +19,7 @@ import exercise71.Contacts;
  *
  * @author  Bui Thi Thuy Quynh
  * @version 1.0
- * @since   2016-09-11
+ * @since   2016-09-15
  */
 public class MainManagementContacts {
 	

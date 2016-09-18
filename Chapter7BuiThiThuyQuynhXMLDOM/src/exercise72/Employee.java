@@ -2,6 +2,13 @@ package exercise72;
 
 import java.text.DecimalFormat;
 
+/**
+ * @author ThuyQuynh
+ * @since 2016-09-18
+ * @version 1.0
+ * 
+ * This is class manages the information of a employee.
+ */
 public class Employee {
 
 	private int id;
@@ -84,6 +91,11 @@ public class Employee {
 		this.departmentId = departmentId;
 	}
 	
+	/**
+	 * This method is used to get the information of an employee
+	 * @param No.
+	 * @return string about information of an employee
+	 */
 	@Override
 	public String toString() {
 		DecimalFormat df = new DecimalFormat("#,###");

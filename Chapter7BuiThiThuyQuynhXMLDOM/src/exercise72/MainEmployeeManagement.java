@@ -9,6 +9,13 @@ import javax.xml.transform.TransformerException;
 
 import org.xml.sax.SAXException;
 
+/**
+ * @author Bui Thi Thuy Quynh
+ * @since 2016-09-14
+ * @version 1.0
+ * 
+ * This is class handles list employees which was read from XML file.
+ */
 public class MainEmployeeManagement {
 
 	public static void main(String[] args) {
@@ -25,6 +32,7 @@ public class MainEmployeeManagement {
 			
 			boolean again = true;
 			while (again) {
+				// Show list department for user choose
 				System.out.print(departmentMana.toString());
 				System.out.println("Choose department:");
 				int departmentId = Integer.parseInt(input.readLine());
@@ -35,7 +43,10 @@ public class MainEmployeeManagement {
 					departmentId = Integer.parseInt(input.readLine());
 				}
 				
+				// Display list employee in this department
 				System.out.println(employeeMana.printListEmployee(departmentId));
+				
+				// Enter the information of a new employee
 				System.out.println("==== Add new employee ======");
 				System.out.println("Enter id: ");
 				int id = Integer.parseInt(input.readLine());
@@ -73,9 +84,12 @@ public class MainEmployeeManagement {
 				
 				Employee employee = new Employee(id, name, sex,
 						birthDate, salary, address, departmentId);
+				
+				// Add new employee to list and write it to file
 				employeeMana.addEmployee(employee);
 				employeeMana.writeContact(filePathEmployee);
 				
+				// Continue add new employee or not.
 				System.out.println("Press [q] to exit. Other key to continue");
 				String temp = input.readLine();
 				
@@ -86,7 +100,7 @@ public class MainEmployeeManagement {
 		}
 		catch (IOException | ParserConfigurationException 
 				| SAXException | TransformerException e) {
-			// TODO: handle exception
+			System.out.println("Error: " + e);
 		}
 		
 

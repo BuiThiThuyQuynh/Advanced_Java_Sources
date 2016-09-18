@@ -28,18 +28,17 @@ import org.xml.sax.SAXException;
  *
  * @author  Bui Thi Thuy Quynh
  * @version 1.0
- * @since   2016-09-11
+ * @since   2016-09-15
  */
 public class Contacts {
 
 	private Map<String, String> contacts;
 	
-	
 	public Contacts(String filePath) {
 		try {
 			readFile(filePath);
-		} catch (ParserConfigurationException | SAXException | IOException e) {
-			// TODO Auto-generated catch block
+		} 
+		catch (ParserConfigurationException | SAXException | IOException e) {
 			e.printStackTrace();
 		}
 	}
@@ -155,6 +154,15 @@ public class Contacts {
 		return result;
 	}
 	
+	/**
+	 * This method is used to get document of file from file path
+	 * @param filePath This is path of XML file.
+	 * @return Document This is document of XML file.
+	 * @throws FileNotFoundException
+	 * @throws SAXException
+	 * @throws IOException
+	 * @throws ParserConfigurationException
+	 */
 	public Document getDocument(String filePath) 
 			throws FileNotFoundException, SAXException, 
 			IOException, ParserConfigurationException {
@@ -168,35 +176,24 @@ public class Contacts {
 		if (xmlFile.isFile()) {
 			doc = builder.parse(new FileInputStream(xmlFile));
 			doc.getDocumentElement().normalize();
-			//rootElement = doc.getDocumentElement(); // get root
 		}
 		else {
-			rootElement = doc.createElement("contacts"); // create root
+			// Create root element
+			rootElement = doc.createElement("contacts"); 
 			doc.appendChild(rootElement);
 		}
 		return doc;
 	}
-	
-	public String delete(String name, String filePath) 
-			throws FileNotFoundException, SAXException, 
-			IOException, ParserConfigurationException {
-		Document doc= getDocument(filePath);
-		Element rootElement = doc.getDocumentElement();
-		
-		
-		NodeList nodeList = rootElement.getElementsByTagName("contact");
-		for (int i = 0; i < nodeList.getLength(); i++) {
-			
-			Contact contact = getContact(nodeList.item(i));
-			if (contact.getName().equals(name)) {
-				while (nodeList.item(i).hasChildNodes())
-					nodeList.item(i).removeChild(nodeList.item(i).getFirstChild());
-				return name + " was removed";
-			}
-		}
-		return name + " was not found";
-	}
-	
+
+	/**
+	 * This method is used to write contacts to XML file.
+	 * @param filePath This is path of XML file.
+	 * @throws FileNotFoundException
+	 * @throws SAXException
+	 * @throws IOException
+	 * @throws ParserConfigurationException
+	 * @throws TransformerException
+	 */
 	public void writeContact(String filePath) 
 			throws FileNotFoundException, SAXException, 
 			IOException, ParserConfigurationException,
@@ -204,12 +201,13 @@ public class Contacts {
 		Document doc= getDocument(filePath);
 		Element rootElement = doc.getDocumentElement();
 		
+		// Remove all node in XML file
 		while (rootElement.hasChildNodes())
 			rootElement.removeChild(rootElement.getFirstChild());
 		
 		for (String key : contacts.keySet()) {
 			
-			// Create contact in root node
+			// Create contact in contact node
 			Element contact = doc.createElement("contact");
 			rootElement.appendChild(contact);
 			
@@ -218,7 +216,7 @@ public class Contacts {
 			name.appendChild(doc.createTextNode(key));
 			contact.appendChild(name);
 			
-			// Create name node in contact node
+			// Create name node in phone node
 			Element phone = doc.createElement("phone");
 			phone.appendChild(doc.createTextNode(contacts.get(key)));
 			contact.appendChild(phone);
@@ -226,6 +224,7 @@ public class Contacts {
 			
 		}
 		
+		// Write document to XML file.
 		TransformerFactory transFactory = TransformerFactory.newInstance();
 		Transformer transformer = transFactory.newTransformer();
 		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
@@ -242,6 +241,11 @@ public class Contacts {
 		System.out.println("File saved");
 	}
 	
+	/**
+	 * This method is used to get a contact from a node in XML file.
+	 * @param node Node contain the information of contact.
+	 * @return Contact This is contact in node.
+	 */
 	private Contact getContact(Node node) {
 		Contact contact = new Contact();
 		if (node.getNodeType() == Node.ELEMENT_NODE) {
@@ -256,16 +260,27 @@ public class Contacts {
 		return contact;
 	}
 	
+	/**
+	 * This method is used to read contacts from XML file and set them to list.
+	 * @param filePath This is path of XML file.
+	 * @return Nothing.
+	 * @throws FileNotFoundException
+	 * @throws ParserConfigurationException
+	 * @throws SAXException
+	 * @throws IOException
+	 */
 	public void readFile(String filePath) 
 			throws FileNotFoundException, ParserConfigurationException, 
 			SAXException, IOException {
+		
+		// Create new contacts.
 		contacts = new HashMap<String, String>();
 		try {
 
 			Document doc = getDocument(filePath);
 			Element rootElement = doc.getDocumentElement();
-			//System.out.println("root:" + rootElement.getNodeName());
 			
+			// Get all contact node in XML file
 			NodeList nodeList = rootElement.getElementsByTagName("contact");
 			for (int i = 0; i < nodeList.getLength(); i++) {
 				Contact contact = getContact(nodeList.item(i));
@@ -275,7 +290,5 @@ public class Contacts {
 		catch (Exception e) {
 			// TODO: handle exception
 		}
-		
-		
 	}
 }
