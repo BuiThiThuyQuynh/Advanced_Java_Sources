@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<department>
+    <employee>
+        <id>1</id>
+        <name>Bui Thi Thuy Quynh</name>
+        <sex>0</sex>
+        <birthdate>1994-12-07</birthdate>
+        <salary>5200000</salary>
+        <address>201/10 Le Van Viet Street, District 9, HCMC</address>
+        <departmentid>1</departmentid>
+    </employee>
+    <employee>
+        <id>2</id>
+        <name>Le Tan Kiet</name>
+        <sex>1</sex>
+        <birthdate>1993-22-02</birthdate>
+        <salary>6400000</salary>
+        <address>201/10 Le Van Viet Street, District 9, HCMC</address>
+        <departmentid>2</departmentid>
+    </employee>
+</department>

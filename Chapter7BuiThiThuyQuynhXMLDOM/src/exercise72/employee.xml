@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<department>
+    <employee>
+        <id>1</id>
+        <name>Truong Thi Thanh Thao</name>
+        <birhtdate>1994-09-09</birhtdate>
+        <salary>1.2E7</salary>
+        <address>sjhdasdsa</address>
+        <departmentid>2</departmentid>
+    </employee>
+</department>
