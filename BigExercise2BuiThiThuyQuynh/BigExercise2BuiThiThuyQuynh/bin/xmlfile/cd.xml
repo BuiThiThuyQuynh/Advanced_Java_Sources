@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<store>
+    <cd>
+        <id>1</id>
+        <name>Anh cứ đi đi</name>
+        <singer>Hariwon</singer>
+        <numbersongs>7</numbersongs>
+        <price>10000.0</price>
+    </cd>
+    <cd>
+        <id>2</id>
+        <name>Take me to your heart</name>
+        <singer>Michael Jackson</singer>
+        <numbersongs>18</numbersongs>
+        <price>30000.0</price>
+    </cd>
+    <cd>
+        <id>3</id>
+        <name>Cơn mưa ngang qua</name>
+        <singer>Sơn Tùng MTP</singer>
+        <numbersongs>5</numbersongs>
+        <price>5000.0</price>
+    </cd>
+    <cd>
+        <id>4</id>
+        <name>Lý mồ côi</name>
+        <singer>Phi Nhung</singer>
+        <numbersongs>17</numbersongs>
+        <price>40000.0</price>
+    </cd>
+</store>
